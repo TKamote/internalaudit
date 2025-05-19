@@ -1,92 +1,176 @@
 {
-  "auditSections": [
+  "auditCategories": [
     {
-      "id": "sec_gen",
+      "id": "cat_general",
       "name": "GENERAL",
-      "items": [
+      "sections": [
         {
-          "id": "gen_item_1",
-          "serialNumber": "1",
-          "description": "Are all staff aware of the customer oriented?",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
-        },
-        {
-          "id": "gen_item_2",
-          "serialNumber": "2",
-          "description": "Is there evidence of the things",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
-        },
-        {
-          "id": "gen_item_3",
-          "serialNumber": "3",
-          "description": "Are all staff aware of the departments' SLA.",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
+          "id": "sec_gen_01",
+          "name": "General Policies",
+          "items": [
+            {
+              "id": "gen_item_1",
+              "serialNumber": "1.1",
+              "description": "Are all staff aware of the customer oriented?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_2",
+              "serialNumber": "1.2",
+              "description": "Is there evidence of the things",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_3",
+              "serialNumber": "1.3",
+              "description": "Are all staff aware of the departments' SLA.",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
         }
       ]
     },
     {
-      "id": "sec_oc_01",
-      "name": "Operational Control OC-01",
-      "items": [
+      "id": "cat_op_control",
+      "name": "OPERATIONAL CONTROLS",
+      "sections": [
         {
-          "id": "oc01_item_1",
-          "serialNumber": "1",
-          "description": "Are all staff aware of the orientation?",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
+          "id": "sec_oc_01",
+          "name": "Operational Control OC-01",
+          "items": [
+            {
+              "id": "oc01_item_1",
+              "serialNumber": "2.1.1",
+              "description": "Are all staff aware of the orientation?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_2",
+              "serialNumber": "2.1.2",
+              "description": "This is beautiful.",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_3",
+              "serialNumber": "2.1.3",
+              "description": "Are all staff aware of the benefits?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
         },
         {
-          "id": "oc01_item_2",
-          "serialNumber": "2",
-          "description": "This is beautiful.",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
-        },
-        {
-          "id": "oc01_item_3",
-          "serialNumber": "3",
-          "description": "Are all staff aware of the benefits?",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
+          "id": "sec_oc_02",
+          "name": "Operational Control OC-02",
+          "items": [
+            {
+              "id": "oc02_item_1",
+              "serialNumber": "2.2.1",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_2",
+              "serialNumber": "2.2.2",
+              "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_3",
+              "serialNumber": "2.2.3",
+              "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
         }
       ]
     },
     {
-      "id": "sec_oc_02",
-      "name": "Operational Control OC-02",
-      "items": [
+      "id": "cat_man_control",
+      "name": "MANAGEMENT CONTROLS",
+      "sections": [
         {
-          "id": "oc02_item_1",
-          "serialNumber": "1",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
-        },
+          "id": "sec_man_01",
+          "name": "Management Control MC-01",
+          "items": [
+            {
+              "id": "man_item_1",
+              "serialNumber": "3.1",
+              "description": "Is there a documented management review process?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "man_item_2",
+              "serialNumber": "3.2",
+              "description": "Are management reviews conducted at planned intervals?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "man_item_3",
+              "serialNumber": "3.3",
+              "description": "Is there evidence of continual improvement based on management reviews?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat_admin_control",
+      "name": "ADMINISTRATION CONTROLS",
+      "sections": [
         {
-          "id": "oc02_item_2",
-          "serialNumber": "2",
-          "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
-        },
-        {
-          "id": "oc02_item_3",
-          "serialNumber": "3",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-          "conformity": null,
-          "auditorRemarks": "",
-          "photoUri": null
+          "id": "sec_admin_01",
+          "name": "Administration Control AC-01",
+          "items": [
+            {
+              "id": "admin_item_1",
+              "serialNumber": "4.1",
+              "description": "Is there an up-to-date organizational chart?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "admin_item_2",
+              "serialNumber": "4.2",
+              "description": "Are job descriptions available and up-to-date?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "admin_item_3",
+              "serialNumber": "4.3",
+              "description": "Is there a process for managing organizational changes?",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
         }
       ]
     }

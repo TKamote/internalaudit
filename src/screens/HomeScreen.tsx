@@ -2,17 +2,28 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, StatusBar, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import for type
-import { AppStackParamList } from '../navigation/AppNavigator'; // Import the ParamList type
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { AppStackParamList } from '../navigation/AppNavigator';
 
-const APP_LIST_DATA = [
-  { id: "1", title: "Audit with Property Checklist", screenName: "AuditPropertyChecklist" as keyof AppStackParamList },
-  { id: "2", title: "Building Inspections - Daily", screenName: "BuildingInspectionsDaily" as keyof AppStackParamList },
-  { id: "3", title: "Building Inspections - Weekly", screenName: "BuildingInspectionsWeekly" as keyof AppStackParamList },
-  { id: "4", title: "Building Inspections - Monthly", screenName: "BuildingInspectionsMonthly" as keyof AppStackParamList },
-  { id: "5", title: "Health & Safety – Daily TBM", screenName: "HealthSafetyDailyTBM" as keyof AppStackParamList },
-  { id: "6", title: "Safety Site Inspection – FSM+Safety", screenName: "SafetySiteInspection" as keyof AppStackParamList },
-  { id: "7", title: "FSM Periodic Inspection", screenName: "FSMPeriodicInspection" as keyof AppStackParamList },
+// Define a more specific type for items in APP_LIST_DATA
+interface AppListItem {
+  id: string;
+  title: string;
+  // Ensure screenName is one of the keys from AppStackParamList that expects no parameters
+  // when navigated to from HomeScreen.
+  // AuditChecklistMain is excluded here because it expects params and is not directly navigated to from APP_LIST_DATA.
+  screenName: Exclude<keyof AppStackParamList, "AuditChecklistMain">;
+}
+
+const APP_LIST_DATA: AppListItem[] = [
+  { id: "1", title: "Audit with Property Checklist", screenName: "AuditCategories" },
+  // Assuming these other screens are defined in your AppStackParamList and don't require params from HomeScreen
+  { id: "2", title: "Building Inspections - Daily", screenName: "BuildingInspectionsDaily" as any }, // Cast to any if not in AppStackParamList yet
+  { id: "3", title: "Building Inspections - Weekly", screenName: "BuildingInspectionsWeekly" as any },// Cast to any if not in AppStackParamList yet
+  { id: "4", title: "Building Inspections - Monthly", screenName: "BuildingInspectionsMonthly" as any },// Cast to any if not in AppStackParamList yet
+  { id: "5", title: "Health & Safety – Daily TBM", screenName: "HealthSafetyDailyTBM" as any },// Cast to any if not in AppStackParamList yet
+  { id: "6", title: "Safety Site Inspection – FSM+Safety", screenName: "SafetySiteInspection" as any },// Cast to any if not in AppStackParamList yet
+  { id: "7", title: "FSM Periodic Inspection", screenName: "FSMPeriodicInspection" as any },// Cast to any if not in AppStackParamList yet
 ];
 
 interface ItemProps {
@@ -26,21 +37,17 @@ const Item = ({ title, onPress }: ItemProps) => (
   </TouchableOpacity>
 );
 
-// Define the type for the navigation prop using the ParamList
 type HomeScreenNavigationProp = NativeStackNavigationProp<AppStackParamList>;
 
 export default function HomeScreen() {
-  const navigation = useNavigation<HomeScreenNavigationProp>(); // Use the typed navigation
+  const navigation = useNavigation<HomeScreenNavigationProp>();
 
-  const renderItem = ({ item }: { item: typeof APP_LIST_DATA[0] }) => (
+  const renderItem = ({ item }: { item: AppListItem }) => (
     <Item
       title={item.title}
       onPress={() => {
-        if (item.screenName && navigation) {
-          navigation.navigate(item.screenName);
-        } else {
-          console.warn("Screen name not defined or navigation not available for:", item.title);
-        }
+        // The type of item.screenName is now correctly constrained by AppListItem
+        navigation.navigate(item.screenName);
       }}
     />
   );

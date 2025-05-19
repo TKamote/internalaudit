@@ -2,14 +2,16 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
-import AuditChecklistMainScreen from "../features/auditPropertyChecklist/screens/AuditChecklistMainScreen"; // Import the new screen
+import AuditCategoriesScreen from "../features/auditPropertyChecklist/screens/AuditCategoriesScreen"; // <<< 1. IMPORT AuditCategoriesScreen
+import AuditChecklistMainScreen from "../features/auditPropertyChecklist/screens/AuditChecklistMainScreen";
 
 // Define a type for our App Stack parameters
 export type AppStackParamList = {
-  AppHome: undefined; // No params expected for HomeScreen
-  AuditPropertyChecklist: undefined; // No params expected for this screen yet
-  // Add other feature screen names here as you create them
-  // e.g., BuildingInspectionsDaily: undefined;
+  AppHome: undefined;
+  // This route will now lead to the list of audit categories
+  AuditCategories: undefined; // <<< 2. ADD/RENAME route for categories
+  // This route is for the detailed checklist, now expecting parameters
+  AuditChecklistMain: { categoryId: string; categoryName: string }; // <<< 3. MODIFY for params
 };
 
 const AppStack = createNativeStackNavigator<AppStackParamList>();
@@ -22,14 +24,25 @@ const AppNavigator = () => {
         component={HomeScreen}
         options={{ title: "Dashboard" }}
       />
-      <AppStack.Screen
-        name="AuditPropertyChecklist" // This name must match screenName in HomeScreen's APP_LIST_DATA
-        component={AuditChecklistMainScreen}
-        options={{ title: "Audit Checklist" }} // Set a title for the header
-      />
-      {/*
-      Screens for your other "apps" (features) will be added here later
+      {/* 
+        This is the screen your HomeScreen should navigate to when the user wants to start an audit.
+        Previously, you might have had a route like "AuditPropertyChecklist" going directly to AuditChecklistMainScreen.
+        Now, that initial navigation from HomeScreen should go to "AuditCategories".
       */}
+      <AppStack.Screen
+        name="AuditCategories" // <<< 4. USE AuditCategoriesScreen here
+        component={AuditCategoriesScreen}
+        options={{ title: "Audit Categories" }}
+      />
+      {/* 
+        AuditCategoriesScreen will navigate to this screen, passing categoryId and categoryName.
+      */}
+      <AppStack.Screen
+        name="AuditChecklistMain"
+        component={AuditChecklistMainScreen}
+        // You can make the title dynamic based on the categoryName passed in route params
+        options={({ route }) => ({ title: route.params?.categoryName || "Checklist" })}
+      />
     </AppStack.Navigator>
   );
 };
