@@ -54,7 +54,7 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>Applications</Text>
+      <Text style={styles.header}>Checklist Forms</Text>
       <FlatList
         data={APP_LIST_DATA}
         renderItem={renderItem}
@@ -71,10 +71,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#f4f4f4',
   },
   header: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginVertical: 20,
+    marginVertical: 18,
   },
   item: {
     backgroundColor: '#ffffff',

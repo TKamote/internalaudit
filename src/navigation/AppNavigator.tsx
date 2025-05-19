@@ -2,19 +2,34 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
-import AuditCategoriesScreen from "../features/auditPropertyChecklist/screens/AuditCategoriesScreen"; // <<< 1. IMPORT AuditCategoriesScreen
+import AuditCategoriesScreen from "../features/auditPropertyChecklist/screens/AuditCategoriesScreen";
 import AuditChecklistMainScreen from "../features/auditPropertyChecklist/screens/AuditChecklistMainScreen";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { View, Text, TouchableOpacity } from 'react-native'; // Ensure View and Text are imported for PlaceholderScreen
 
 // Define a type for our App Stack parameters
 export type AppStackParamList = {
   AppHome: undefined;
-  // This route will now lead to the list of audit categories
-  AuditCategories: undefined; // <<< 2. ADD/RENAME route for categories
-  // This route is for the detailed checklist, now expecting parameters
-  AuditChecklistMain: { categoryId: string; categoryName: string }; // <<< 3. MODIFY for params
+  AuditCategories: undefined;
+  AuditChecklistMain: { categoryId: string; categoryName: string };
+  // Definitions for placeholder screens
+  BuildingInspectionsDaily: undefined;
+  BuildingInspectionsWeekly: undefined;
+  BuildingInspectionsMonthly: undefined;
+  HealthSafetyDailyTBM: undefined;
+  SafetySiteInspection: undefined;
+  FSMPeriodicInspection: undefined;
 };
 
 const AppStack = createNativeStackNavigator<AppStackParamList>();
+
+// A simple placeholder screen component
+const PlaceholderScreen = ({ route }: { route: { name: string } }) => ( // Added type for route prop
+  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <Text>Screen: {route.name}</Text>
+    <Text>This screen is not yet implemented.</Text>
+  </View>
+);
 
 const AppNavigator = () => {
   return (
@@ -22,27 +37,51 @@ const AppNavigator = () => {
       <AppStack.Screen
         name="AppHome"
         component={HomeScreen}
-        options={{ title: "Dashboard" }}
+        options={({ navigation }) => ({
+          title: "", // Keep title empty or remove if headerTitle is used
+          headerLeft: () => null, // Remove the left icon or set to null if you want default back arrow behavior on other screens to be consistent
+          headerTitleAlign: 'center', // Ensure title alignment is center
+          headerTitle: () => ( // <<< USE headerTitle TO CENTER THE ICON
+            <Ionicons
+              name="home-outline" 
+              size={28}
+              color="#020202" 
+              // No specific style needed here unless you want to adjust its position within the title container
+            />
+          ),
+        })}
       />
-      {/* 
-        This is the screen your HomeScreen should navigate to when the user wants to start an audit.
-        Previously, you might have had a route like "AuditPropertyChecklist" going directly to AuditChecklistMainScreen.
-        Now, that initial navigation from HomeScreen should go to "AuditCategories".
-      */}
       <AppStack.Screen
-        name="AuditCategories" // <<< 4. USE AuditCategoriesScreen here
+        name="AuditCategories"
         component={AuditCategoriesScreen}
-        options={{ title: "Audit Categories" }}
+        options={{ 
+          title: "", 
+          headerRight: () => ( 
+            <Ionicons
+              name="list-outline" 
+              size={28} 
+              color="#020202" 
+              style={{ marginRight: 15 }} 
+            />
+          ),
+          headerBackTitle: "",
+        }}
       />
-      {/* 
-        AuditCategoriesScreen will navigate to this screen, passing categoryId and categoryName.
-      */}
       <AppStack.Screen
         name="AuditChecklistMain"
         component={AuditChecklistMainScreen}
-        // You can make the title dynamic based on the categoryName passed in route params
-        options={({ route }) => ({ title: route.params?.categoryName || "Checklist" })}
+        options={({ route }) => ({ 
+          title: route.params?.categoryName || "Checklist",
+          headerBackTitle: "",
+        })}
       />
+      {/* Placeholder screens for the other items from APP_LIST_DATA */}
+      <AppStack.Screen name="BuildingInspectionsDaily" component={PlaceholderScreen} options={{ title: "Building Inspections Daily" }} />
+      <AppStack.Screen name="BuildingInspectionsWeekly" component={PlaceholderScreen} options={{ title: "Building Inspections Weekly" }} />
+      <AppStack.Screen name="BuildingInspectionsMonthly" component={PlaceholderScreen} options={{ title: "Building Inspections Monthly" }} />
+      <AppStack.Screen name="HealthSafetyDailyTBM" component={PlaceholderScreen} options={{ title: "Health & Safety TBM" }} />
+      <AppStack.Screen name="SafetySiteInspection" component={PlaceholderScreen} options={{ title: "Safety Site Inspection" }} />
+      <AppStack.Screen name="FSMPeriodicInspection" component={PlaceholderScreen} options={{ title: "FSM Periodic Inspection" }} />
     </AppStack.Navigator>
   );
 };
