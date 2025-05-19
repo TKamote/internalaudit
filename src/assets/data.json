@@ -1,0 +1,94 @@
+{
+  "auditSections": [
+    {
+      "id": "sec_gen",
+      "name": "GENERAL",
+      "items": [
+        {
+          "id": "gen_item_1",
+          "serialNumber": "1",
+          "description": "Are all staff aware of the customer oriented?",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        },
+        {
+          "id": "gen_item_2",
+          "serialNumber": "2",
+          "description": "Is there evidence of the things",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        },
+        {
+          "id": "gen_item_3",
+          "serialNumber": "3",
+          "description": "Are all staff aware of the departments' SLA.",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        }
+      ]
+    },
+    {
+      "id": "sec_oc_01",
+      "name": "Operational Control OC-01",
+      "items": [
+        {
+          "id": "oc01_item_1",
+          "serialNumber": "1",
+          "description": "Are all staff aware of the orientation?",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        },
+        {
+          "id": "oc01_item_2",
+          "serialNumber": "2",
+          "description": "This is beautiful.",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        },
+        {
+          "id": "oc01_item_3",
+          "serialNumber": "3",
+          "description": "Are all staff aware of the benefits?",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        }
+      ]
+    },
+    {
+      "id": "sec_oc_02",
+      "name": "Operational Control OC-02",
+      "items": [
+        {
+          "id": "oc02_item_1",
+          "serialNumber": "1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        },
+        {
+          "id": "oc02_item_2",
+          "serialNumber": "2",
+          "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        },
+        {
+          "id": "oc02_item_3",
+          "serialNumber": "3",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+          "conformity": null,
+          "auditorRemarks": "",
+          "photoUri": null
+        }
+      ]
+    }
+  ]
+}
