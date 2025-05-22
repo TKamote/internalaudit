@@ -29,9 +29,11 @@ interface AuditItemData {
   id: string;
   serialNumber: string;
   description: string;
-  conformity: ConformityStatus;
-  auditorRemarks: string;
-  photoUri?: string | null;
+  type: "header" | "item"; // Added type
+  conformity?: ConformityStatus; // Now optional
+  auditorRemarks?: string; // Now optional
+  photoUri?: string | null; // Now optional
+  subItems?: AuditItemData[]; // Optional array of sub-items
 }
 
 // This now represents a section WITHIN a category
