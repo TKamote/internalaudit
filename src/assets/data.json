@@ -19,6 +19,7 @@
                   "serialNumber": "1.1",
                   "description": "Are all staff aware of the customer-oriented policies?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -28,6 +29,7 @@
                   "serialNumber": "1.2",
                   "description": "Is there evidence of these policies being implemented?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -37,6 +39,7 @@
                   "serialNumber": "1.3",
                   "description": "Are policies reviewed and updated regularly?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -48,6 +51,7 @@
               "serialNumber": "2.0",
               "description": "Are all staff aware of the departments' SLA.",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
@@ -57,6 +61,7 @@
               "serialNumber": "2.1",
               "description": "Is there evidence of the things (another standalone item)",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
@@ -84,6 +89,7 @@
                   "serialNumber": "2.1.1",
                   "description": "Are all staff aware of the orientation?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -93,6 +99,7 @@
                   "serialNumber": "2.1.2",
                   "description": "Is orientation material up-to-date?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -102,6 +109,7 @@
                   "serialNumber": "2.1.3",
                   "description": "Are records of orientation completion maintained?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -113,6 +121,7 @@
               "serialNumber": "2.2.0",
               "description": "This is beautiful (standalone item).",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
@@ -128,6 +137,7 @@
               "serialNumber": "2.3.1",
               "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
@@ -137,6 +147,7 @@
               "serialNumber": "2.3.2",
               "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
@@ -146,6 +157,7 @@
               "serialNumber": "2.3.3",
               "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
@@ -173,6 +185,7 @@
                   "serialNumber": "3.1",
                   "description": "Is there a documented management review process?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -182,6 +195,7 @@
                   "serialNumber": "3.2",
                   "description": "Are management reviews conducted at planned intervals?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -191,6 +205,7 @@
                   "serialNumber": "3.3",
                   "description": "Is there evidence of continual improvement based on management reviews?",
                   "type": "item",
+                  "riskLevel": "M",
                   "conformity": null,
                   "auditorRemarks": "",
                   "photoUri": null
@@ -214,6 +229,7 @@
               "serialNumber": "4.1",
               "description": "Is there an up-to-date organizational chart?",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
@@ -223,6 +239,7 @@
               "serialNumber": "4.2",
               "description": "Are job descriptions available and up-to-date?",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
@@ -232,6 +249,7 @@
               "serialNumber": "4.3",
               "description": "Is there a process for managing organizational changes?",
               "type": "item",
+              "riskLevel": "M",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
