@@ -72,7 +72,7 @@
     },
     {
       "id": "cat_op_control",
-      "name": "OPERATIONAL CONTROLS",
+      "name": "OPERATIONS",
       "sections": [
         {
           "id": "sec_oc_01",
@@ -168,7 +168,7 @@
     },
     {
       "id": "cat_man_control",
-      "name": "MANAGEMENT CONTROLS",
+      "name": "MANAGEMENT",
       "sections": [
         {
           "id": "sec_man_01",
@@ -218,7 +218,7 @@
     },
     {
       "id": "cat_admin_control",
-      "name": "ADMINISTRATION CONTROLS",
+      "name": "ADMINISTRATION",
       "sections": [
         {
           "id": "sec_admin_01",
@@ -250,6 +250,456 @@
               "description": "Is there a process for managing organizational changes?",
               "type": "item",
               "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat_system_control",
+      "name": "SYSTEM",
+      "sections": [
+        {
+          "id": "sec_sys_01",
+          "name": "System Checks SC-01",
+          "items": [
+            {
+              "id": "sys_item_1",
+              "serialNumber": "5.1",
+              "description": "Is system documentation complete and accessible?",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_2",
+              "serialNumber": "5.2",
+              "description": "Are system backups performed regularly and tested?",
+              "type": "item",
+              "riskLevel": "H",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_group_3",
+              "serialNumber": "5.3.0",
+              "description": "User Access Control (Main Header)",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "sys_item_3_1",
+                  "serialNumber": "5.3.1",
+                  "description": "Is there a formal process for granting user access?",
+                  "type": "item",
+                  "riskLevel": "H",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "sys_item_3_2",
+                  "serialNumber": "5.3.2",
+                  "description": "Are user access rights reviewed periodically?",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "sys_item_3_3",
+                  "serialNumber": "5.3.3",
+                  "description": "Is access revoked promptly upon employee termination?",
+                  "type": "item",
+                  "riskLevel": "H",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "sys_item_3_4",
+                  "serialNumber": "5.3.4",
+                  "description": "Are strong password policies enforced?",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "sys_item_3_5",
+                  "serialNumber": "5.3.5",
+                  "description": "Is multi-factor authentication used for critical systems?",
+                  "type": "item",
+                  "riskLevel": "H",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "sys_item_4",
+              "serialNumber": "5.4",
+              "description": "Are software licenses compliant and managed?",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_01",
+              "serialNumber": "5.5",
+              "description": "Dummy system check item alpha for extended page testing.",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_02",
+              "serialNumber": "5.6",
+              "description": "Placeholder text for system audit point beta, ensuring sufficient content.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_03",
+              "serialNumber": "5.7",
+              "description": "Another entry, gamma series, to populate the system checklist further.",
+              "type": "item",
+              "riskLevel": "H",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_04",
+              "serialNumber": "5.8",
+              "description": "System verification point delta, for comprehensive audit simulation.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_05",
+              "serialNumber": "5.9",
+              "description": "Epsilon check for system integrity and data flow validation.",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_06",
+              "serialNumber": "5.10",
+              "description": "Zeta procedure review item for system operations continuity.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_07",
+              "serialNumber": "5.11",
+              "description": "Eta assessment point for system security patch management.",
+              "type": "item",
+              "riskLevel": "H",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_08",
+              "serialNumber": "5.12",
+              "description": "Theta compliance check for data retention policies within the system.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_09",
+              "serialNumber": "5.13",
+              "description": "Iota system performance monitoring check and alert mechanisms.",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_10",
+              "serialNumber": "5.14",
+              "description": "Kappa review of system change management procedures and approvals.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_11",
+              "serialNumber": "5.15",
+              "description": "Lambda check for disaster recovery plan effectiveness and testing.",
+              "type": "item",
+              "riskLevel": "H",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_12",
+              "serialNumber": "5.16",
+              "description": "Mu verification of incident response procedures for system events.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_13",
+              "serialNumber": "5.17",
+              "description": "Nu assessment of third-party system integrations and security.",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_14",
+              "serialNumber": "5.18",
+              "description": "Xi check for system logging and audit trail capabilities.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_15",
+              "serialNumber": "5.19",
+              "description": "Omicron review of data encryption standards at rest and in transit.",
+              "type": "item",
+              "riskLevel": "H",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_16",
+              "serialNumber": "5.20",
+              "description": "Pi validation of user training programs for system usage.",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_17",
+              "serialNumber": "5.21",
+              "description": "Rho check for physical security measures for system hardware.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_18",
+              "serialNumber": "5.22",
+              "description": "Sigma assessment of system capacity planning and scalability.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_19",
+              "serialNumber": "5.23",
+              "description": "Tau review of vendor management for system components.",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_20",
+              "serialNumber": "5.24",
+              "description": "Upsilon check for software development lifecycle security practices.",
+              "type": "item",
+              "riskLevel": "H",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_21",
+              "serialNumber": "5.25",
+              "description": "Phi verification of data privacy compliance (e.g., GDPR, CCPA).",
+              "type": "item",
+              "riskLevel": "H",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_22",
+              "serialNumber": "5.26",
+              "description": "Chi assessment of system documentation accuracy and completeness.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_23",
+              "serialNumber": "5.27",
+              "description": "Psi review of system decommissioning procedures and data disposal.",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_24",
+              "serialNumber": "5.28",
+              "description": "Omega final check for overall system health and operational readiness.",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "sys_item_dummy_25",
+              "serialNumber": "5.29",
+              "description": "Extended system check item for ensuring page break in main table.",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat_safety_control",
+      "name": "SAFETY",
+      "sections": [
+        {
+          "id": "sec_safe_01",
+          "name": "Safety Protocols SP-01",
+          "items": [
+            {
+              "id": "safe_item_1",
+              "serialNumber": "6.1",
+              "description": "Are emergency exits clearly marked and unobstructed?",
+              "type": "item",
+              "riskLevel": "H",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "safe_item_group_2",
+              "serialNumber": "6.2.0",
+              "description": "Fire Safety Measures (Main Header)",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "safe_item_2_1",
+                  "serialNumber": "6.2.1",
+                  "description": "Are fire extinguishers inspected regularly and accessible?",
+                  "type": "item",
+                  "riskLevel": "H",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "safe_item_2_2",
+                  "serialNumber": "6.2.2",
+                  "description": "Are smoke detectors functional and tested?",
+                  "type": "item",
+                  "riskLevel": "H",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "safe_item_2_3",
+                  "serialNumber": "6.2.3",
+                  "description": "Is there an evacuation plan in place and communicated?",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "safe_item_2_4",
+                  "serialNumber": "6.2.4",
+                  "description": "Are fire drills conducted periodically?",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "safe_item_2_5",
+                  "serialNumber": "6.2.5",
+                  "description": "Is flammable material stored safely?",
+                  "type": "item",
+                  "riskLevel": "H",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "safe_item_3",
+              "serialNumber": "6.3",
+              "description": "Is first aid equipment available and stocked?",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "safe_item_4",
+              "serialNumber": "6.4",
+              "description": "Are safety incident reporting procedures in place?",
+              "type": "item",
+              "riskLevel": "L",
               "conformity": null,
               "auditorRemarks": "",
               "photoUri": null

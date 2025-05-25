@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import * as ImagePicker from "expo-image-picker";
-import { RouteProp, useRoute } from "@react-navigation/native";
+import { RouteProp, useRoute, useNavigation } from "@react-navigation/native"; // Import useNavigation
 // import { NativeStackNavigationProp } from "@react-navigation/native-stack"; // Not used in current snippet, but keep if needed
 
 import initialAuditDataImport from "../../../assets/data.json";
@@ -30,7 +30,7 @@ export type ConformityStatus =
   | "not-conformed"
   | "not-applicable"
   | null;
-export type RiskLevel = "L" | "M" | "H" | null; // Keep this type definition
+export type RiskLevel = "L" | "M" | "H" | null;
 
 export interface AuditItemData {
   id: string;
@@ -38,7 +38,7 @@ export interface AuditItemData {
   description: string;
   type: "header" | "item";
   conformity?: ConformityStatus;
-  riskLevel?: RiskLevel; // Keep riskLevel, it will come from data.json
+  riskLevel?: RiskLevel;
   auditorRemarks?: string;
   photoUri?: string | null;
   subItems?: AuditItemData[];
@@ -102,12 +102,6 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
         );
         return;
       }
-      // Allow photo even if not conformed, but not if N/A or null status
-      // if (item.conformity === null) {
-      //   Alert.alert("Select Status", "Please select a conformity status before taking a photo.");
-      //   return;
-      // }
-
       const permissionResult =
         await ImagePicker.requestCameraPermissionsAsync();
       if (permissionResult.granted === false) {
@@ -119,7 +113,7 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
       }
       try {
         const pickerResult = await ImagePicker.launchCameraAsync({
-          allowsEditing: false, // Or true, depending on your needs
+          allowsEditing: false,
           quality: 0.5,
         });
         if (
@@ -138,13 +132,12 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
     // --- Logic for removing a photo ---
     const triggerRemovePhoto = () => {
       if (item.type === "header") return;
-      onPhotoTake(item.id, sectionId, null); // Call onPhotoTake with null URI
+      onPhotoTake(item.id, sectionId, null);
     };
 
     const isPhotoTakingDisabled =
       item.type === "header" || item.conformity === "not-applicable";
 
-    // --- Rendering logic for header type items ---
     if (item.type === "header") {
       return (
         <View style={styles.auditItemContainerHeader}>
@@ -154,7 +147,7 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
           {item.subItems && item.subItems.length > 0 && (
             <View style={styles.subItemsContainer}>
               {item.subItems.map((subItem) => (
-                <AuditListItem // Recursive call
+                <AuditListItem
                   key={subItem.id}
                   item={subItem}
                   onStatusChange={onStatusChange}
@@ -169,7 +162,6 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
       );
     }
 
-    // --- Rendering logic for 'item' type (actionable items) ---
     return (
       <View style={styles.auditItemContainer}>
         <View style={styles.itemHeader}>
@@ -261,18 +253,21 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
       </View>
     );
   }
-); // <<< END React.memo for AuditListItem
+);
 
 // --- Main Screen Component ---
 const AuditChecklistMainScreen = () => {
   const route = useRoute<AuditChecklistMainScreenRouteProp>();
+  const navigation = useNavigation(); // Get navigation object
   const { categoryId, categoryName } = route.params;
 
   const [auditSections, setAuditSections] = useState<AuditSectionData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false); // State for unsaved changes
 
   useEffect(() => {
+    // ... (existing useEffect for loading data remains the same) ...
     const allData = initialAuditDataImport as FullAuditData;
     const currentCategoryData = allData.auditCategories.find(
       (cat) => cat.id === categoryId
@@ -281,29 +276,59 @@ const AuditChecklistMainScreen = () => {
       const processedSections = currentCategoryData.sections.map((section) => ({
         ...section,
         items: section.items.map((item: any) => ({
-          // Use 'any' temporarily or define a more specific type for raw JSON item
           ...item,
           conformity: item.conformity || null,
-          riskLevel: item.riskLevel || null, // Ensure riskLevel is read from JSON
+          riskLevel: item.riskLevel || null,
           auditorRemarks: item.auditorRemarks || "",
           photoUri: item.photoUri || null,
           subItems: item.subItems
             ? item.subItems.map((subItem: any) => ({
                 ...subItem,
                 conformity: subItem.conformity || null,
-                riskLevel: subItem.riskLevel || null, // Ensure riskLevel is read for subItems
+                riskLevel: subItem.riskLevel || null,
                 auditorRemarks: subItem.auditorRemarks || "",
                 photoUri: subItem.photoUri || null,
               }))
             : [],
         })),
       }));
-      setAuditSections(processedSections as AuditSectionData[]); // Cast back to AuditSectionData[]
+      setAuditSections(processedSections as AuditSectionData[]);
     } else {
       console.warn(`Category with ID "${categoryId}" not found.`);
     }
     setIsLoading(false);
+    setHasUnsavedChanges(false); // Reset on initial load or category change
   }, [categoryId]);
+
+  // --- Effect for handling 'beforeRemove' navigation event ---
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("beforeRemove", (e) => {
+      if (!hasUnsavedChanges) {
+        // If no unsaved changes, allow navigation
+        return;
+      }
+
+      // Prevent default behavior of leaving the screen
+      e.preventDefault();
+
+      // Prompt the user
+      Alert.alert(
+        "Unsaved Changes",
+        "You have unsaved changes. Are you sure you want to discard them and leave the screen?",
+        [
+          { text: "Don't leave", style: "cancel", onPress: () => {} },
+          {
+            text: "Discard",
+            style: "destructive",
+            // If the user confirms, then dispatch the action they blocked
+            onPress: () => navigation.dispatch(e.data.action),
+          },
+        ]
+      );
+    });
+
+    return unsubscribe; // Cleanup listener on component unmount
+  }, [navigation, hasUnsavedChanges]); // Re-subscribe if navigation or hasUnsavedChanges changes
 
   // --- Recursive helper to find and update an item/subItem ---
   const findItemAndUpdateRecursive = (
@@ -316,18 +341,16 @@ const AuditChecklistMainScreen = () => {
         return updateFn(item);
       }
       if (item.subItems && item.subItems.length > 0) {
-        // If the item itself isn't the target, check its subItems
         const updatedSubItems = findItemAndUpdateRecursive(
           item.subItems,
           itemId,
           updateFn
         );
-        // If subItems changed, return the item with updated subItems
         if (updatedSubItems !== item.subItems) {
           return { ...item, subItems: updatedSubItems };
         }
       }
-      return item; // Return original item if no change
+      return item;
     });
   };
 
@@ -349,30 +372,75 @@ const AuditChecklistMainScreen = () => {
   };
 
   // --- Callback Handlers ---
-  // <<< WRAP handler functions with useCallback >>>
   const handleItemStatusChange = useCallback(
     (itemId: string, sectionId: string, newStatus: ConformityStatus) => {
-      setAuditSections((prevSections) =>
-        findSectionAndAndUpdateItems(
+      setAuditSections((prevSections) => {
+        // Check if the status is actually changing
+        const section = prevSections.find((s) => s.id === sectionId);
+        let itemChanged = false;
+        if (section) {
+          const findItem = (
+            items: AuditItemData[]
+          ): AuditItemData | undefined => {
+            for (const i of items) {
+              if (i.id === itemId) return i;
+              if (i.subItems) {
+                const sub = findItem(i.subItems);
+                if (sub) return sub;
+              }
+            }
+            return undefined;
+          };
+          const currentItem = findItem(section.items);
+          if (currentItem && currentItem.conformity !== newStatus) {
+            itemChanged = true;
+          }
+        }
+
+        if (itemChanged) {
+          setHasUnsavedChanges(true);
+        }
+        return findSectionAndAndUpdateItems(
           prevSections,
           sectionId,
           itemId,
           (item) => ({
             ...item,
             conformity: newStatus,
-            // Logic for photoUri based on conformity (optional, adjust as needed)
-            // photoUri: (newStatus === "conformed" || newStatus === "not-applicable") ? null : item.photoUri,
           })
-        )
-      );
+        );
+      });
     },
-    []
-  ); // Empty dependency array: function is stable
+    [] // No direct dependencies for setAuditSections, findSectionAndAndUpdateItems is stable
+  );
 
   const handleItemRemarkChange = useCallback(
     (itemId: string, sectionId: string, newRemark: string) => {
-      setAuditSections((prevSections) =>
-        findSectionAndAndUpdateItems(
+      setAuditSections((prevSections) => {
+        const section = prevSections.find((s) => s.id === sectionId);
+        let itemChanged = false;
+        if (section) {
+          const findItem = (
+            items: AuditItemData[]
+          ): AuditItemData | undefined => {
+            for (const i of items) {
+              if (i.id === itemId) return i;
+              if (i.subItems) {
+                const sub = findItem(i.subItems);
+                if (sub) return sub;
+              }
+            }
+            return undefined;
+          };
+          const currentItem = findItem(section.items);
+          if (currentItem && (currentItem.auditorRemarks || "") !== newRemark) {
+            itemChanged = true;
+          }
+        }
+        if (itemChanged) {
+          setHasUnsavedChanges(true);
+        }
+        return findSectionAndAndUpdateItems(
           prevSections,
           sectionId,
           itemId,
@@ -380,16 +448,43 @@ const AuditChecklistMainScreen = () => {
             ...item,
             auditorRemarks: newRemark,
           })
-        )
-      );
+        );
+      });
     },
     []
   );
 
   const handleItemPhotoTake = useCallback(
     (itemId: string, sectionId: string, photoUri: string | null) => {
-      setAuditSections((prevSections) =>
-        findSectionAndAndUpdateItems(
+      setAuditSections((prevSections) => {
+        const section = prevSections.find((s) => s.id === sectionId);
+        let itemChanged = false;
+        if (section) {
+          const findItem = (
+            items: AuditItemData[]
+          ): AuditItemData | undefined => {
+            for (const i of items) {
+              if (i.id === itemId) return i;
+              if (i.subItems) {
+                const sub = findItem(i.subItems);
+                if (sub) return sub;
+              }
+            }
+            return undefined;
+          };
+          const currentItem = findItem(section.items);
+          if (
+            currentItem &&
+            (currentItem.photoUri || null) !== (photoUri || null)
+          ) {
+            itemChanged = true;
+          }
+        }
+
+        if (itemChanged) {
+          setHasUnsavedChanges(true);
+        }
+        return findSectionAndAndUpdateItems(
           prevSections,
           sectionId,
           itemId,
@@ -397,13 +492,11 @@ const AuditChecklistMainScreen = () => {
             ...item,
             photoUri: photoUri,
           })
-        )
-      );
+        );
+      });
     },
     []
   );
-
-  // REMOVE handleItemRiskLevelChange callback
 
   // --- PDF Generation Handler ---
   const handleGeneratePdf = async () => {
@@ -449,7 +542,6 @@ const AuditChecklistMainScreen = () => {
     );
     const logItemsRecursive = (items: AuditItemData[], indent = "") => {
       items.forEach((item) => {
-        // Log riskLevel if it's an item
         if (item.type === "item") {
           console.log(
             `${indent}  Item ID: ${item.id}, SN: ${
@@ -462,7 +554,6 @@ const AuditChecklistMainScreen = () => {
           console.log(
             `${indent}  Header: ${item.serialNumber} ${item.description}`
           );
-          // Headers don't typically have their own risk level in this model, but sub-items do
           if (item.subItems && item.subItems.length > 0) {
             logItemsRecursive(item.subItems, indent + "    ");
           }
@@ -477,6 +568,8 @@ const AuditChecklistMainScreen = () => {
       "Data Logged",
       "Current audit data for this category has been logged to the console."
     );
+    // If this were a real save, you might do:
+    // setHasUnsavedChanges(false);
   };
 
   if (isLoading) {
@@ -500,7 +593,6 @@ const AuditChecklistMainScreen = () => {
         <Text style={styles.screenTitleText}>
           {categoryName || "Checklist"}
         </Text>
-        {/* PDF Generation Button */}
         <TouchableOpacity
           onPress={handleGeneratePdf}
           disabled={isGeneratingPdf}
@@ -552,7 +644,6 @@ const AuditChecklistMainScreen = () => {
 
 // --- Styles ---
 const styles = StyleSheet.create({
-  // ... (Your existing styles from the previous step, including pdfButton and pdfButtonText)
   safeArea: { flex: 1, backgroundColor: "#F4F4F8" },
   centered: { flex: 1, justifyContent: "center", alignItems: "center" },
   screenHeader: {
@@ -606,21 +697,19 @@ const styles = StyleSheet.create({
   itemHeader: {
     flexDirection: "row",
     marginBottom: 10,
-    alignItems:
-      "flex-start" /* Align items to start for multi-line descriptions */,
+    alignItems: "flex-start",
   },
   serialNumber: {
     fontWeight: "bold",
     marginRight: 5,
     color: "#333",
     fontSize: 14,
-    lineHeight: 18 /* Match descriptionText lineHeight */,
+    lineHeight: 18,
   },
   descriptionText: { flex: 1, fontSize: 14, color: "#333", lineHeight: 18 },
   riskLevelDisplay: {
-    // Style for the (RL: H) text
     fontSize: 13,
-    color: "#555", // Slightly different color to distinguish
+    color: "#555",
     fontWeight: "600",
   },
   checkboxesRow: {
@@ -700,7 +789,7 @@ const styles = StyleSheet.create({
 // Add or uncomment this type definition
 type AuditChecklistMainScreenRouteProp = RouteProp<
   AppStackParamList,
-  "AuditChecklistMain" // This 'AuditChecklistMain' must match the screen name in your AppStackParamList
+  "AuditChecklistMain"
 >;
 
 export default AuditChecklistMainScreen;
