@@ -94,7 +94,6 @@ export const generateHtmlForPdf = async (
     return itemHtml;
   };
 
-  // Generate separate tables for each section
   let sectionsHtml = "";
   for (let sectionIndex = 0; sectionIndex < sections.length; sectionIndex++) {
     const section = sections[sectionIndex];
@@ -108,8 +107,14 @@ export const generateHtmlForPdf = async (
       sectionRowsHtml += `<tr class="no-items-row"><td colspan="7" style="padding: 8px; text-align: center;">No items in this section.</td></tr>`;
     }
 
+    const pageBreakBeforeSection =
+      sectionIndex > 0
+        ? '<div style="page-break-before: always; height: 1px; margin-top: -1px; overflow: hidden;"></div>'
+        : "";
+
     sectionsHtml += `
-      <div class="table-container ${sectionIndex > 0 ? 'avoid-break' : ''}">
+      ${pageBreakBeforeSection}
+      <div class="table-container">
         <table class="section-table"> 
           <thead>
             <tr>
@@ -133,6 +138,7 @@ export const generateHtmlForPdf = async (
     `;
   }
 
+  // --- Photo Annex HTML Generation (remains unchanged) ---
   let photoAnnexHtml = "";
   if (photoItemsForAnnex.length > 0) {
     photoAnnexHtml += `<div class="photo-annex-container new-page"><h2>Photo Annex</h2>`;
@@ -149,12 +155,12 @@ export const generateHtmlForPdf = async (
       if (i % 2 === 0) {
         photoAnnexHtml += `<div class="photo-card-row avoid-break">`;
       }
-      
+
       const isLastCard = i === photoItemsForAnnex.length - 1;
       const isSingleCardInRow = i % 2 === 0 && isLastCard;
-      
+
       photoAnnexHtml += `
-        <div class="photo-card ${isSingleCardInRow ? 'single-card' : ''}">
+        <div class="photo-card ${isSingleCardInRow ? "single-card" : ""}">
           <div class="card-photo-column">
             ${
               base64Image
@@ -182,6 +188,7 @@ export const generateHtmlForPdf = async (
     photoAnnexHtml += `</div>`;
   }
 
+  // --- Outer HTML Structure ---
   return `
     <html>
       <head>
@@ -190,30 +197,20 @@ export const generateHtmlForPdf = async (
         <style>
           @page { 
             size: A4 portrait; 
-            margin: 20mm 15mm 20mm 15mm; /* top right bottom left margins */
+            margin: 15mm 5mm 15mm 5mm; 
           }
-          
           * {
             box-sizing: border-box;
           }
-          
           html, body { 
-            height: 100vh; 
-            width: 100vw;
             margin: 0;
-            padding: 0;
-          }
-          
-          body { 
+            padding: 0; 
             font-family: Helvetica, Arial, sans-serif; 
             font-size: 9px; 
             line-height: 1.3; 
             -webkit-font-smoothing: antialiased; 
-            color: #333; 
-            padding: 15mm; /* Explicit body padding for better compatibility */
-            min-height: 100vh;
+            color: #333;
           }
-          
           h1 { 
             font-size: 18px; 
             color: #2c3e50; 
@@ -222,39 +219,39 @@ export const generateHtmlForPdf = async (
             margin-top: 0; 
             margin-bottom: 20px; 
             text-align: center;
+            width: 100%; 
           }
-          
-          /* Split table approach for better page break control */
+
+          /* --- Table Styles (Part 1) --- */
           .table-container {
-            width: 100%;
-            margin-bottom: 20px;
+            width: 100%; 
+            /* max-width: 100%; /* Not strictly needed if section-table handles its width */
+            /* overflow-x: hidden; /* Let's try to fix width directly on table */
+            margin-bottom: 20px; 
           }
-          
           .section-table { 
-            width: 100%;
+            /* MODIFICATION: Attempt to fix overflow */
+            width: calc(100% - 10px); /* Try subtracting a bit more than the overflow */
+            /* Alternative: width: 99%; */
+            /* max-width: 100%; /* Ensured by the width setting above */
             border-collapse: collapse; 
-            margin-bottom: 30px; /* Space between sections */
             table-layout: fixed;
-            break-inside: avoid;
-            -webkit-column-break-inside: avoid;
-            page-break-inside: avoid;
+            break-inside: auto; 
+            page-break-inside: auto; 
+            margin-bottom: 30px; 
+            margin-left: auto; /* If width is less than 100%, center the table */
+            margin-right: auto; /* If width is less than 100%, center the table */
           }
-          
-          /* Force table header on each section */
           .section-table thead {
-            display: table-header-group;
+            display: table-header-group !important; /* Keep trying, but low expectation */
           }
-          
           .section-table thead tr {
             background-color: #f2f2f2 !important;
           }
-          
           .section-table tbody tr {
-            break-inside: avoid;
-            -webkit-column-break-inside: avoid;
-            page-break-inside: avoid;
+            break-inside: avoid !important; /* Keep trying, but low expectation */
+            page-break-inside: avoid !important; 
           }
-          
           th, td { 
             border: 1px solid #ccc; 
             padding: 6px 4px; 
@@ -263,19 +260,15 @@ export const generateHtmlForPdf = async (
             word-wrap: break-word; 
             overflow-wrap: break-word;
           }
-          
           th { 
             background-color: #f2f2f2 !important; 
             font-weight: bold; 
             font-size: 10px; 
             color: #333 !important;
           }
-          
           td { 
             font-size: 9px; 
           }
-          
-          /* Section header styling */
           .section-header-cell {
             background-color: #e0e0e0 !important; 
             font-weight: bold; 
@@ -284,123 +277,91 @@ export const generateHtmlForPdf = async (
             border-top: 2px solid #333 !important;
             font-size: 11px;
           }
-          
-          .header-row-cell {
+          .header-row-cell { 
             background-color: #f0f0f0 !important; 
             font-weight: bold;
           }
-          
-          /* Column widths */
           .col-sn { width: 7%; } 
           .col-desc { width: 30%; } 
           .col-risk { width: 8%; }
           .col-conf { width: 8%; } 
           .col-nc { width: 12%; } 
-          .col-auditor { width: 20%; }
+          .col-auditor { width: 20%; } 
           .col-site { width: 15%; }
-          
-          /* Page break helpers */
-          .page-break-before {
-            break-before: page;
-            -webkit-column-break-before: page;
-            page-break-before: always;
-          }
-          
-          .avoid-break {
-            break-inside: avoid;
-            -webkit-column-break-inside: avoid;
-            page-break-inside: avoid;
-          }
 
-          /* Photo Annex Styles */
+          /* --- All Photo Annex Styles Go Here (Unchanged) --- */
           .photo-annex-container { 
-            margin-top: 40px;
             width: 100%; 
           }
-          
-          .photo-annex-container.new-page {
+          .photo-annex-container.new-page { 
             break-before: page;
             -webkit-column-break-before: page;
             page-break-before: always;
-            margin-top: 0; /* Reset margin for new page */
-            padding-top: 0;
+            margin-top: 0; 
+            padding-top: 0; 
           }
-          
           .photo-annex-container h2 { 
             font-size: 16px; 
             color: #2c3e50; 
             border-bottom: 1px solid #3498db; 
             padding-bottom: 6px; 
-            margin-top: 0;
+            margin-top: 0; 
             margin-bottom: 25px; 
             text-align: center;
           }
-          
           .photo-card-row { 
             display: flex; 
             flex-direction: row; 
             justify-content: space-between;
-            margin-bottom: 20px; 
+            margin-bottom: 10px; 
             width: 100%;
-            min-height: 250px;
           }
-          
-          .photo-card-row.avoid-break {
+          .photo-card-row.avoid-break { 
             break-inside: avoid;
             -webkit-column-break-inside: avoid;
             page-break-inside: avoid;
           }
-          
           .photo-card {
             box-sizing: border-box; 
             width: 48%;
             border: 1px solid #b0b0b0; 
             display: flex; 
             flex-direction: row;
-            min-height: 250px;
-            max-height: 250px;
             background-color: #fdfdfd;
           }
-          
           .photo-card.single-card {
             width: 100%;
           }
-          
           .card-photo-column {
             box-sizing: border-box; 
             width: 55%;
-            padding: 6px;
+            padding: 2px;
             display: flex; 
             align-items: center; 
             justify-content: center;
             border-right: 1px solid #e0e0e0; 
           }
-          
           .card-photo-column img {
             max-width: 100%; 
-            max-height: 230px;
             height: auto; 
             display: block; 
             margin: 0;
             padding: 0;
             object-fit: contain;
           }
-          
           .card-details-column { 
             box-sizing: border-box; 
             width: 45%;
-            padding: 8px; 
+            padding: 4px; 
             display: flex; 
             flex-direction: column;
             justify-content: space-between; 
           }
-          
           .details-top-section p {
             margin: 0 0 5px 0; 
             font-size: 8px;
             line-height: 1.2;
           }
-          
           .details-top-section p.remarks-text {
              white-space: pre-wrap; 
              word-wrap: break-word;
@@ -410,7 +371,6 @@ export const generateHtmlForPdf = async (
              font-size: 7px;
              line-height: 1.1;
           }
-          
           .details-bottom-section.site-remarks-placeholder-box { 
             box-sizing: border-box; 
             border: 1px solid #999;
@@ -427,19 +387,23 @@ export const generateHtmlForPdf = async (
             margin-top: auto; 
           }
           
+          .avoid-break { /* General utility, used by photo-card-row */
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+          }
+
           /* Print-specific adjustments */
           @media print {
-            body {
+            body { 
               -webkit-print-color-adjust: exact !important;
               print-color-adjust: exact !important;
             }
-            
             .section-table {
-              margin-bottom: 25mm; /* Ensure space between sections in print */
+              margin-bottom: 25mm; /* This could be adjusted if needed */
             }
-            
-            .photo-card-row {
-              margin-bottom: 15mm;
+            .photo-card-row { 
+              margin-bottom: 15mm; 
             }
           }
         </style>
