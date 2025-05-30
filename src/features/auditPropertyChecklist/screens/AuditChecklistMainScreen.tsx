@@ -20,9 +20,10 @@ import { RouteProp, useRoute, useNavigation } from "@react-navigation/native"; /
 
 import initialAuditDataImport from "../../../assets/data.json";
 import { AppStackParamList } from "../../../navigation/AppNavigator";
-import * as Print from "expo-print";
+import * as Print from "expo-print"; // Keep for potential actual printing later
 import * as Sharing from "expo-sharing";
-import { generateHtmlForPdf } from "../../../utils/pdfutils";
+import * as FileSystem from "expo-file-system"; // Import FileSystem
+import { generatePdfWithJsPDF } from "../../../utils/pdfutils";
 
 // --- Types ---
 export type ConformityStatus =
@@ -42,6 +43,8 @@ export interface AuditItemData {
   auditorRemarks?: string;
   photoUri?: string | null;
   subItems?: AuditItemData[];
+  originalImageWidth?: number;
+  originalImageHeight?: number;
 }
 
 export interface AuditSectionData {
@@ -508,26 +511,48 @@ const AuditChecklistMainScreen = () => {
 
     setIsGeneratingPdf(true);
     try {
-      const htmlContent = await generateHtmlForPdf(
+      // 1. Generate the PDF using jsPDF, get the base64 data URI
+      const pdfDataUri = await generatePdfWithJsPDF(
         categoryName || "Unnamed Category",
         auditSections
       );
 
-      const { uri } = await Print.printToFileAsync({ html: htmlContent });
-      console.log("PDF generated at:", uri);
+      // 2. Extract the base64 part from the data URI
+      const extractedBase64 = pdfDataUri.split(",")[1];
 
+      if (typeof extractedBase64 !== "string" || extractedBase64.length === 0) {
+        throw new Error(
+          "Could not extract valid base64 content from PDF data URI."
+        );
+      }
+      const base64Pdf: string = extractedBase64;
+
+      // 3. Save the base64 PDF string to a temporary file using FileSystem
+      const pdfFileName = `audit-report-${Date.now()}.pdf`;
+      // Use cacheDirectory for temporary files that can be cleared by the OS
+      const fileUri = FileSystem.cacheDirectory + pdfFileName;
+
+      await FileSystem.writeAsStringAsync(fileUri, base64Pdf, {
+        encoding: FileSystem.EncodingType.Base64,
+      });
+      console.log("PDF (from jsPDF) saved to file at:", fileUri);
+
+      // 4. Share the generated file URI
       if (!(await Sharing.isAvailableAsync())) {
-        Alert.alert("Sharing Not Available", "PDF generated: " + uri);
+        Alert.alert("Sharing Not Available", "PDF generated at: " + fileUri);
+        // setIsGeneratingPdf(false); // Already in finally block
         return;
       }
-      await Sharing.shareAsync(uri, {
+      await Sharing.shareAsync(fileUri, {
         mimeType: "application/pdf",
         dialogTitle: `Share Audit: ${categoryName || "Report"}`,
-        UTI: ".pdf",
       });
     } catch (error) {
       console.error("Error during PDF generation or sharing:", error);
-      Alert.alert("PDF Error", "Could not generate or share the PDF.");
+      Alert.alert(
+        "PDF Error",
+        "Could not generate or share the PDF. " + (error as Error).message
+      );
     } finally {
       setIsGeneratingPdf(false);
     }

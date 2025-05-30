@@ -1,4 +1,6 @@
 import * as FileSystem from "expo-file-system";
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable"; // Correct import for jspdf-autotable
 import {
   AuditSectionData,
   AuditItemData,
@@ -6,6 +8,7 @@ import {
   ConformityStatus,
 } from "../features/auditPropertyChecklist/screens/AuditChecklistMainScreen";
 
+// convertImageToBase64 function remains the same
 export const convertImageToBase64 = async (
   uri: string
 ): Promise<string | null> => {
@@ -26,6 +29,7 @@ export const convertImageToBase64 = async (
   }
 };
 
+// getConformityStatusForAnnex function remains the same
 const getConformityStatusForAnnex = (
   conformity: ConformityStatus | undefined,
   riskLevel: RiskLevel | undefined
@@ -39,380 +43,520 @@ const getConformityStatusForAnnex = (
   return conformity || "N/A";
 };
 
-export const generateHtmlForPdf = async (
+// NEW PDF GENERATION FUNCTION USING jsPDF
+export const generatePdfWithJsPDF = async (
   currentCategoryName: string,
   sections: AuditSectionData[]
 ): Promise<string> => {
+  const doc = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "a4",
+  });
+
   const photoItemsForAnnex: AuditItemData[] = [];
 
-  const processItem = async (
-    item: AuditItemData,
-    indentLevel = 0
-  ): Promise<string> => {
-    let itemHtml = "";
-    const indentStyle = `padding-left: ${indentLevel * 15}px;`;
+  // MODIFIED: Symmetrical 10mm page margins
+  const pageMargin = { top: 15, right: 10, bottom: 15, left: 10 };
+  const pageWidth = doc.internal.pageSize.getWidth(); // Typically 210mm for A4
+  const pageHeight = doc.internal.pageSize.getHeight(); // Typically 297mm for A4
+  const contentWidth = pageWidth - pageMargin.left - pageMargin.right; // 210 - 3 - 20 = 187mm
+  let currentY = pageMargin.top;
 
-    if (item.type === "header") {
-      itemHtml += `
-        <tr class="header-row">
-          <td colspan="7" class="header-row-cell" style="${indentStyle}">
-            ${item.serialNumber} ${item.description}
-          </td>
-        </tr>
-      `;
-      if (item.subItems && item.subItems.length > 0) {
-        for (const subItem of item.subItems) {
-          itemHtml += await processItem(subItem, indentLevel + 1);
-        }
-      }
-    } else {
-      const conformityDisplay = item.conformity === "conformed" ? "✓" : "";
-      let ncStatus = "";
-      if (item.conformity === "not-conformed") {
-        ncStatus =
-          item.riskLevel === "H"
-            ? "Major"
-            : item.riskLevel === "L" || item.riskLevel === "M"
-            ? "Minor"
-            : "";
-      }
-      itemHtml += `
-        <tr class="data-row">
-          <td style="${indentStyle}">${item.serialNumber || ""}</td>
-          <td>${item.description || ""}</td>
-          <td style="text-align: center;">${item.riskLevel || ""}</td>
-          <td style="text-align: center;">${conformityDisplay}</td>
-          <td style="text-align: center;">${ncStatus}</td>
-          <td>${item.auditorRemarks || ""}</td>
-          <td></td> 
-        </tr>
-      `;
-      if (item.photoUri && item.conformity !== "not-applicable") {
-        photoItemsForAnnex.push(item);
-      }
+  const addPageNumbers = () => {
+    // ... (addPageNumbers function remains the same) ...
+    const pageCount = doc.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setFontSize(8);
+      doc.setTextColor(100);
+      doc.text(
+        `Page ${i} of ${pageCount}`,
+        pageWidth / 2,
+        pageHeight - pageMargin.bottom / 2 - 2,
+        { align: "center" }
+      );
     }
-    return itemHtml;
   };
 
-  let sectionsHtml = "";
+  // --- Main Title ---
+  doc.setFontSize(12);
+  doc.setTextColor(44, 62, 80);
+  doc.text(
+    `Audit Report: ${currentCategoryName}`,
+    pageWidth / 2, // Centered
+    currentY,
+    { align: "center" }
+  );
+  currentY += 5; // MODIFIED: Further reduced space after title
+  doc.setLineWidth(0.5);
+  doc.setDrawColor(52, 152, 219);
+  doc.line(pageMargin.left, currentY, pageWidth - pageMargin.right, currentY);
+  currentY += 6; // MODIFIED: Further reduced space after border
+
+  // --- Process Sections and Items for Tables ---
+  const transformItemDataForTable = (
+    items: AuditItemData[],
+    indentLevel = 0
+  ): any[] => {
+    let tableRows: any[] = [];
+    items.forEach((item) => {
+      const indentPrefix = " ".repeat(indentLevel * 2); // Simple text indent
+
+      if (item.type === "header") {
+        // Add header row (could be styled differently in autoTable)
+        tableRows.push([
+          {
+            content: `${indentPrefix}${item.serialNumber || ""} ${
+              item.description || ""
+            }`,
+            colSpan: 7, // Span across all columns
+            styles: {
+              fontStyle: "bold",
+              fillColor: [240, 240, 240], // Light grey #f0f0f0
+              halign: "left",
+              fontSize: 9, // MODIFIED: Ensure sub-header items are also font size 9
+            },
+          },
+        ]);
+        if (item.subItems && item.subItems.length > 0) {
+          tableRows = tableRows.concat(
+            transformItemDataForTable(item.subItems, indentLevel + 1)
+          );
+        }
+      } else {
+        // MODIFIED: Display "N/A" for not-applicable, "Yes" for conformed
+        let conformityDisplay = "";
+        if (item.conformity === "conformed") {
+          conformityDisplay = "Yes";
+        } else if (item.conformity === "not-applicable") {
+          conformityDisplay = "N/A";
+        }
+
+        let ncStatus = "";
+        if (item.conformity === "not-conformed") {
+          ncStatus =
+            item.riskLevel === "H"
+              ? "Major" // Entries remain full words
+              : item.riskLevel === "L" || item.riskLevel === "M"
+              ? "Minor" // Entries remain full words
+              : "";
+        }
+        // MODIFIED: Add "N/A" to auditorRemarks if empty
+        const auditorRemarksDisplay =
+          item.conformity === "not-applicable"
+            ? ""
+            : item.auditorRemarks || "N/A";
+
+        tableRows.push([
+          `${indentPrefix}${item.serialNumber || ""}`,
+          `${indentPrefix}${item.description || ""}`, // Apply indent to description too if desired
+          item.riskLevel || "",
+          conformityDisplay,
+          ncStatus,
+          auditorRemarksDisplay, // Use display version
+          "", // Site Team's Remarks placeholder
+        ]);
+
+        // MODIFIED: Only add to photo annex if NOT "not-applicable"
+        if (item.photoUri && item.conformity !== "not-applicable") {
+          photoItemsForAnnex.push(item);
+        }
+      }
+    });
+    return tableRows;
+  };
+
+  let hasRenderedTable = false; // Flag to track if any table was rendered
+
   for (let sectionIndex = 0; sectionIndex < sections.length; sectionIndex++) {
     const section = sections[sectionIndex];
-    let sectionRowsHtml = "";
+    hasRenderedTable = true; // A section table is about to be rendered
+
+    if (sectionIndex > 0) {
+      // Check if we need a new page before starting a new section table
+      // This is a rough check; autoTable handles its own page breaks too.
+      // We might need to add a more robust check or let autoTable handle it primarily.
+      if (currentY + 40 > pageHeight - pageMargin.bottom) {
+        // Estimate space needed for section header + some rows
+        doc.addPage();
+        currentY = pageMargin.top;
+      } else {
+        currentY += 10; // Add some space before the next section if on same page
+      }
+    }
+
+    // Section Name Header within the table structure (or as separate text)
+    // For jsPDF-AutoTable, it's often cleaner to add it as a row in the table
+    // or as text just before the table.
+
+    const sectionTableBody = [];
+
+    // Section Header Row
+    sectionTableBody.push([
+      {
+        content: `Section: ${section.name}`,
+        colSpan: 7,
+        styles: {
+          fontStyle: "bold",
+          fillColor: [224, 224, 224], // #e0e0e0
+          textColor: [51, 51, 51], // #333
+          halign: "left", // MODIFIED: Ensure section name is left-aligned
+          fontSize: 9, // MODIFIED: Section name font size to 9
+          cellPadding: 2,
+        },
+      },
+    ]);
 
     if (section.items && section.items.length > 0) {
-      for (const item of section.items) {
-        sectionRowsHtml += await processItem(item, 0);
-      }
+      sectionTableBody.push(...transformItemDataForTable(section.items));
     } else {
-      sectionRowsHtml += `<tr class="no-items-row"><td colspan="7" style="padding: 8px; text-align: center;">No items in this section.</td></tr>`;
+      sectionTableBody.push([
+        {
+          content: "No items in this section.",
+          colSpan: 7,
+          styles: { halign: "center", cellPadding: 2, fontSize: 9 }, // MODIFIED: Ensure font size 9
+        },
+      ]);
     }
 
-    const pageBreakBeforeSection =
-      sectionIndex > 0
-        ? '<div style="page-break-before: always; height: 1px; margin-top: -1px; overflow: hidden;"></div>'
-        : "";
+    // User's desired relative column widths
+    const relativeColWidths = {
+      sn: 0.05,
+      desc: 0.28,
+      risk: 0.07,
+      conf: 0.07,
+      nc: 0.105,
+      auditorRemarks: 0.18,
+      siteRemarks: 0.18,
+    };
 
-    sectionsHtml += `
-      ${pageBreakBeforeSection}
-      <div class="table-container">
-        <table class="section-table"> 
-          <thead>
-            <tr>
-              <th class="col-sn">S/N</th>
-              <th class="col-desc">Description</th>
-              <th class="col-risk">Risk Level</th>
-              <th class="col-conf">Conformed</th>
-              <th class="col-nc">Not Conformed (Major / Minor)</th>
-              <th class="col-auditor">Auditor's Remarks</th>
-              <th class="col-site">Site Team's Remarks</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="section-header">
-              <td colspan="7" class="section-header-cell">Section: ${section.name}</td>
-            </tr>
-            ${sectionRowsHtml}
-          </tbody>
-        </table>
-      </div>
-    `;
+    // Normalize these widths to sum to 1.0 so they use the full contentWidth
+    const sumOfRelativeWidths = Object.values(relativeColWidths).reduce(
+      (sum, w) => sum + w,
+      0
+    ); // Should be 0.935
+
+    const normalizedColWidths = {
+      sn: relativeColWidths.sn / sumOfRelativeWidths,
+      desc: relativeColWidths.desc / sumOfRelativeWidths,
+      risk: relativeColWidths.risk / sumOfRelativeWidths,
+      conf: relativeColWidths.conf / sumOfRelativeWidths,
+      nc: relativeColWidths.nc / sumOfRelativeWidths,
+      auditorRemarks: relativeColWidths.auditorRemarks / sumOfRelativeWidths,
+      siteRemarks: relativeColWidths.siteRemarks / sumOfRelativeWidths,
+    };
+    // Now, sum of normalizedColWidths will be 1.0
+
+    autoTable(doc, {
+      head: [
+        [
+          "S/N",
+          "Description",
+          "Risk Level",
+          "Conformed",
+          "Not Conformed Maj./Min.", // MODIFIED: Header text
+          "Auditor's Remarks",
+          "Site Team's Remarks",
+        ],
+      ],
+      body: sectionTableBody,
+      startY: currentY,
+      theme: "grid",
+      // tableWidth: 'auto', // This would make the table span contentWidth by default
+      styles: {
+        fontSize: 9,
+        cellPadding: 1.5,
+        valign: "top",
+        overflow: "linebreak",
+      },
+      headStyles: {
+        fillColor: [242, 242, 242],
+        textColor: [51, 51, 51],
+        fontStyle: "bold",
+        fontSize: 9,
+        halign: "center",
+      },
+      columnStyles: {
+        0: { cellWidth: contentWidth * normalizedColWidths.sn, halign: "left" },
+        1: { cellWidth: contentWidth * normalizedColWidths.desc },
+        2: {
+          cellWidth: contentWidth * normalizedColWidths.risk,
+          halign: "center",
+        },
+        3: {
+          cellWidth: contentWidth * normalizedColWidths.conf,
+          halign: "center",
+        },
+        4: {
+          cellWidth: contentWidth * normalizedColWidths.nc,
+          halign: "center",
+        },
+        5: { cellWidth: contentWidth * normalizedColWidths.auditorRemarks },
+        6: { cellWidth: contentWidth * normalizedColWidths.siteRemarks },
+      },
+      margin: { left: pageMargin.left, right: pageMargin.right }, // Explicitly pass page margins
+    });
+    currentY = (doc as any).lastAutoTable.finalY + 10;
   }
 
-  // --- Photo Annex HTML Generation (remains unchanged) ---
-  let photoAnnexHtml = "";
+  // --- Photo Annex ---
   if (photoItemsForAnnex.length > 0) {
-    photoAnnexHtml += `<div class="photo-annex-container new-page"><h2>Photo Annex</h2>`;
-    for (let i = 0; i < photoItemsForAnnex.length; i++) {
-      const item = photoItemsForAnnex[i];
-      const base64Image = item.photoUri
-        ? await convertImageToBase64(item.photoUri)
-        : null;
-      const conformityText = getConformityStatusForAnnex(
-        item.conformity,
-        item.riskLevel
-      );
-
-      if (i % 2 === 0) {
-        photoAnnexHtml += `<div class="photo-card-row avoid-break">`;
-      }
-
-      const isLastCard = i === photoItemsForAnnex.length - 1;
-      const isSingleCardInRow = i % 2 === 0 && isLastCard;
-
-      photoAnnexHtml += `
-        <div class="photo-card ${isSingleCardInRow ? "single-card" : ""}">
-          <div class="card-photo-column">
-            ${
-              base64Image
-                ? `<img src="${base64Image}" alt="Evidence for ${item.serialNumber}"/>`
-                : '<p style="text-align:center; color: #777; padding: 10px;">Photo not available</p>'
-            }
-          </div>
-          <div class="card-details-column">
-            <div class="details-top-section">
-              <p><strong>S/N:</strong> ${item.serialNumber || "N/A"}</p>
-              <p><strong>Status:</strong> ${conformityText}</p>
-              <p><strong>Auditor Remarks:</strong></p>
-              <p class="remarks-text">${item.auditorRemarks || ""}</p>
-            </div>
-            <div class="details-bottom-section site-remarks-placeholder-box">
-              Site Team's Remarks
-            </div>
-          </div>
-        </div>
-      `;
-      if (i % 2 === 1 || isLastCard) {
-        photoAnnexHtml += `</div>`;
+    if (hasRenderedTable) {
+      doc.addPage();
+      currentY = pageMargin.top;
+    } else {
+      if (
+        currentY + 60 > pageHeight - pageMargin.bottom &&
+        currentY > pageMargin.top
+      ) {
+        doc.addPage();
+        currentY = pageMargin.top;
       }
     }
-    photoAnnexHtml += `</div>`;
+
+    const annexTitleStartY = currentY;
+    doc.setFontSize(16);
+    doc.setTextColor(44, 62, 80);
+    doc.text("Photo Annex", pageWidth / 2, currentY, { align: "center" });
+    currentY += 6;
+    doc.setLineWidth(0.3);
+    doc.setDrawColor(52, 152, 219);
+    const underlineLength = contentWidth * 0.4; // Shorter underline
+    doc.line(
+      pageWidth / 2 - underlineLength / 2, // Centered underline
+      currentY,
+      pageWidth / 2 + underlineLength / 2,
+      currentY
+    );
+    currentY += 10;
+    const annexTitleHeight = currentY - annexTitleStartY; // Actual height taken by title section
+
+    // Calculate dimensions for a 2x2 grid of cards per page
+    const pageNumberAllowance = 10; // Approximate space for page number at bottom
+    const availableHeightForCards =
+      pageHeight -
+      pageMargin.top -
+      pageMargin.bottom -
+      annexTitleHeight -
+      pageNumberAllowance;
+
+    const interRowSpacing = 4; // Space between the two rows of cards
+    const targetCardHeight = (availableHeightForCards - interRowSpacing) / 2;
+
+    const newColumnGap = contentWidth * 0.02; // Narrower column gap (2% of contentWidth)
+    const targetCardWidth = (contentWidth - newColumnGap) / 2;
+
+    // Define padding and spacing within the card
+    const cardInternalPadding = 3;
+    const textBlockSpacing = 5; // Space between "Auditor Remarks" block and "Site Team Remarks" box
+
+    for (let i = 0; i < photoItemsForAnnex.length; i += 2) {
+      const item1 = photoItemsForAnnex[i]; // This will always be a valid AuditItemData if loop condition is met
+      const item2 =
+        i + 1 < photoItemsForAnnex.length ? photoItemsForAnnex[i + 1] : null;
+
+      if (
+        currentY + targetCardHeight >
+        pageHeight - pageMargin.bottom - pageNumberAllowance
+      ) {
+        doc.addPage();
+        currentY = pageMargin.top;
+        // ... (redraw annex title on new page) ...
+        doc.setFontSize(16);
+        doc.setTextColor(44, 62, 80);
+        doc.text("Photo Annex", pageWidth / 2, currentY, { align: "center" });
+        currentY += 6;
+        doc.setLineWidth(0.3);
+        doc.setDrawColor(52, 152, 219);
+        doc.line(
+          pageWidth / 2 - underlineLength / 2,
+          currentY,
+          pageWidth / 2 + underlineLength / 2,
+          currentY
+        );
+        currentY += 10;
+      }
+
+      let cardX = pageMargin.left;
+      const cardRowY = currentY;
+
+      // Create an array of items for the current row, filtering out nulls
+      const currentRowItems: AuditItemData[] = [];
+      if (item1) currentRowItems.push(item1);
+      if (item2) currentRowItems.push(item2);
+
+      for (const [index, currentItem] of currentRowItems.entries()) {
+        // Renamed 'item' to 'currentItem' for clarity
+        // currentItem here is guaranteed to be AuditItemData, not null.
+        if (index === 1) {
+          cardX += targetCardWidth + newColumnGap;
+        }
+
+        doc.setDrawColor(150, 150, 150);
+        doc.rect(cardX, cardRowY, targetCardWidth, targetCardHeight, "S");
+
+        const imageAreaX = cardX + cardInternalPadding;
+        const imageAreaY = cardRowY + cardInternalPadding;
+        const imageAreaWidth =
+          targetCardWidth * 0.6 - cardInternalPadding * 1.5;
+        const imageAreaMaxHeight = targetCardHeight - cardInternalPadding * 2;
+
+        if (currentItem.photoUri) {
+          // Check currentItem
+          const base64Image = await convertImageToBase64(currentItem.photoUri);
+          if (base64Image) {
+            // Access properties on currentItem, provide fallbacks if original dimensions might be undefined
+            const originalImgWidth = currentItem.originalImageWidth || 100; // Fallback
+            const originalImgHeight = currentItem.originalImageHeight || 100; // Fallback
+
+            const scale = Math.min(
+              imageAreaWidth / originalImgWidth,
+              imageAreaMaxHeight / originalImgHeight
+            );
+            const scaledImgWidth = originalImgWidth * scale;
+            const scaledImgHeight = originalImgHeight * scale;
+
+            const imgDrawX = imageAreaX + (imageAreaWidth - scaledImgWidth) / 2;
+            const imgDrawY =
+              imageAreaY + (imageAreaMaxHeight - scaledImgHeight) / 2;
+
+            try {
+              doc.addImage(
+                base64Image,
+                "JPEG",
+                imgDrawX,
+                imgDrawY,
+                scaledImgWidth,
+                scaledImgHeight,
+                undefined,
+                "FAST"
+              );
+            } catch (e) {
+              console.error(
+                `Error adding image for S/N ${currentItem.serialNumber}:`, // Use currentItem
+                e
+              );
+              doc.setFontSize(7);
+              doc.setTextColor(128, 0, 0);
+              doc.text(
+                "Error loading image",
+                imageAreaX + 2,
+                imageAreaY + imageAreaMaxHeight / 2,
+                { maxWidth: imageAreaWidth - 4 }
+              );
+            }
+          } else {
+            doc.setFontSize(7);
+            doc.setTextColor(100);
+            doc.text(
+              "Photo not available",
+              imageAreaX + imageAreaWidth / 2,
+              imageAreaY + imageAreaMaxHeight / 2,
+              { align: "center", maxWidth: imageAreaWidth - 4 }
+            );
+          }
+        } else {
+          doc.setFontSize(7);
+          doc.setTextColor(100);
+          doc.text(
+            "No photo provided",
+            imageAreaX + imageAreaWidth / 2,
+            imageAreaY + imageAreaMaxHeight / 2,
+            { align: "center", maxWidth: imageAreaWidth - 4 }
+          );
+        }
+
+        let textCurrentY = cardRowY + cardInternalPadding;
+        const textDetailsAreaX =
+          cardX + targetCardWidth * 0.6 + cardInternalPadding / 2;
+        const textDetailsWidth =
+          targetCardWidth * 0.4 - cardInternalPadding * 1.5;
+
+        doc.setFontSize(8);
+        doc.setTextColor(51, 51, 51);
+
+        // Use currentItem for all text details
+        doc.text(
+          `S/N: ${currentItem.serialNumber || "N/A"}`,
+          textDetailsAreaX,
+          textCurrentY,
+          { maxWidth: textDetailsWidth }
+        );
+        textCurrentY += 4;
+
+        doc.text(
+          `Status: ${getConformityStatusForAnnex(
+            currentItem.conformity,
+            currentItem.riskLevel
+          )}`,
+          textDetailsAreaX,
+          textCurrentY,
+          { maxWidth: textDetailsWidth }
+        );
+        textCurrentY += 4;
+
+        doc.text("Auditor's Remarks:", textDetailsAreaX, textCurrentY, {
+          maxWidth: textDetailsWidth,
+        });
+        textCurrentY += 4;
+        const auditorRemarks = doc.splitTextToSize(
+          currentItem.auditorRemarks || "N/A",
+          textDetailsWidth
+        );
+
+        const siteRemarksBoxHeight = 20;
+        const spaceForAuditorRemarks =
+          cardRowY +
+          targetCardHeight -
+          cardInternalPadding -
+          textCurrentY -
+          siteRemarksBoxHeight -
+          textBlockSpacing;
+
+        let linesDrawn = 0;
+        for (const line of auditorRemarks) {
+          const lineHeight = 3.5;
+          if ((linesDrawn + 1) * lineHeight > spaceForAuditorRemarks - 2) {
+            break;
+          }
+          doc.text(
+            line,
+            textDetailsAreaX,
+            textCurrentY + linesDrawn * lineHeight,
+            {
+              maxWidth: textDetailsWidth,
+            }
+          );
+          linesDrawn++;
+        }
+        textCurrentY += linesDrawn * 3.5 + textBlockSpacing;
+
+        const siteRemarksBoxY =
+          cardRowY +
+          targetCardHeight -
+          cardInternalPadding -
+          siteRemarksBoxHeight;
+        doc.setDrawColor(200, 200, 200);
+        doc.rect(
+          textDetailsAreaX,
+          siteRemarksBoxY,
+          textDetailsWidth,
+          siteRemarksBoxHeight,
+          "S"
+        );
+        doc.text(
+          "Site Team's Remarks:",
+          textDetailsAreaX + cardInternalPadding / 2,
+          siteRemarksBoxY + 5,
+          { maxWidth: textDetailsWidth - cardInternalPadding }
+        );
+      } // End of for...of loop for items in a row
+
+      currentY += targetCardHeight + interRowSpacing; // Move Y to the start of the next row of cards
+    }
   }
 
-  // --- Outer HTML Structure ---
-  return `
-    <html>
-      <head>
-        <meta charset="UTF-8">
-        <title>Audit Report: ${currentCategoryName}</title>
-        <style>
-          @page { 
-            size: A4 portrait; 
-            margin: 15mm 5mm 15mm 5mm; 
-          }
-          * {
-            box-sizing: border-box;
-          }
-          html, body { 
-            margin: 0;
-            padding: 0; 
-            font-family: Helvetica, Arial, sans-serif; 
-            font-size: 9px; 
-            line-height: 1.3; 
-            -webkit-font-smoothing: antialiased; 
-            color: #333;
-          }
-          h1 { 
-            font-size: 18px; 
-            color: #2c3e50; 
-            border-bottom: 2px solid #3498db; 
-            padding-bottom: 8px; 
-            margin-top: 0; 
-            margin-bottom: 20px; 
-            text-align: center;
-            width: 100%; 
-          }
-
-          /* --- Table Styles (Part 1) --- */
-          .table-container {
-            width: 100%; 
-            /* max-width: 100%; /* Not strictly needed if section-table handles its width */
-            /* overflow-x: hidden; /* Let's try to fix width directly on table */
-            margin-bottom: 20px; 
-          }
-          .section-table { 
-            /* MODIFICATION: Attempt to fix overflow */
-            width: calc(100% - 10px); /* Try subtracting a bit more than the overflow */
-            /* Alternative: width: 99%; */
-            /* max-width: 100%; /* Ensured by the width setting above */
-            border-collapse: collapse; 
-            table-layout: fixed;
-            break-inside: auto; 
-            page-break-inside: auto; 
-            margin-bottom: 30px; 
-            margin-left: auto; /* If width is less than 100%, center the table */
-            margin-right: auto; /* If width is less than 100%, center the table */
-          }
-          .section-table thead {
-            display: table-header-group !important; /* Keep trying, but low expectation */
-          }
-          .section-table thead tr {
-            background-color: #f2f2f2 !important;
-          }
-          .section-table tbody tr {
-            break-inside: avoid !important; /* Keep trying, but low expectation */
-            page-break-inside: avoid !important; 
-          }
-          th, td { 
-            border: 1px solid #ccc; 
-            padding: 6px 4px; 
-            text-align: left; 
-            vertical-align: top; 
-            word-wrap: break-word; 
-            overflow-wrap: break-word;
-          }
-          th { 
-            background-color: #f2f2f2 !important; 
-            font-weight: bold; 
-            font-size: 10px; 
-            color: #333 !important;
-          }
-          td { 
-            font-size: 9px; 
-          }
-          .section-header-cell {
-            background-color: #e0e0e0 !important; 
-            font-weight: bold; 
-            padding: 8px; 
-            text-align: center; 
-            border-top: 2px solid #333 !important;
-            font-size: 11px;
-          }
-          .header-row-cell { 
-            background-color: #f0f0f0 !important; 
-            font-weight: bold;
-          }
-          .col-sn { width: 7%; } 
-          .col-desc { width: 30%; } 
-          .col-risk { width: 8%; }
-          .col-conf { width: 8%; } 
-          .col-nc { width: 12%; } 
-          .col-auditor { width: 20%; } 
-          .col-site { width: 15%; }
-
-          /* --- All Photo Annex Styles Go Here (Unchanged) --- */
-          .photo-annex-container { 
-            width: 100%; 
-          }
-          .photo-annex-container.new-page { 
-            break-before: page;
-            -webkit-column-break-before: page;
-            page-break-before: always;
-            margin-top: 0; 
-            padding-top: 0; 
-          }
-          .photo-annex-container h2 { 
-            font-size: 16px; 
-            color: #2c3e50; 
-            border-bottom: 1px solid #3498db; 
-            padding-bottom: 6px; 
-            margin-top: 0; 
-            margin-bottom: 25px; 
-            text-align: center;
-          }
-          .photo-card-row { 
-            display: flex; 
-            flex-direction: row; 
-            justify-content: space-between;
-            margin-bottom: 10px; 
-            width: 100%;
-          }
-          .photo-card-row.avoid-break { 
-            break-inside: avoid;
-            -webkit-column-break-inside: avoid;
-            page-break-inside: avoid;
-          }
-          .photo-card {
-            box-sizing: border-box; 
-            width: 48%;
-            border: 1px solid #b0b0b0; 
-            display: flex; 
-            flex-direction: row;
-            background-color: #fdfdfd;
-          }
-          .photo-card.single-card {
-            width: 100%;
-          }
-          .card-photo-column {
-            box-sizing: border-box; 
-            width: 55%;
-            padding: 2px;
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            border-right: 1px solid #e0e0e0; 
-          }
-          .card-photo-column img {
-            max-width: 100%; 
-            height: auto; 
-            display: block; 
-            margin: 0;
-            padding: 0;
-            object-fit: contain;
-          }
-          .card-details-column { 
-            box-sizing: border-box; 
-            width: 45%;
-            padding: 4px; 
-            display: flex; 
-            flex-direction: column;
-            justify-content: space-between; 
-          }
-          .details-top-section p {
-            margin: 0 0 5px 0; 
-            font-size: 8px;
-            line-height: 1.2;
-          }
-          .details-top-section p.remarks-text {
-             white-space: pre-wrap; 
-             word-wrap: break-word;
-             max-height: 90px;
-             overflow-y: hidden; 
-             margin-bottom: 10px; 
-             font-size: 7px;
-             line-height: 1.1;
-          }
-          .details-bottom-section.site-remarks-placeholder-box { 
-            box-sizing: border-box; 
-            border: 1px solid #999;
-            width: 100%; 
-            height: 85px; 
-            padding: 6px; 
-            font-size: 8px; 
-            color: #555; 
-            font-weight: bold;
-            display: flex; 
-            align-items: flex-start; 
-            justify-content: flex-start; 
-            text-align: left;
-            margin-top: auto; 
-          }
-          
-          .avoid-break { /* General utility, used by photo-card-row */
-            break-inside: avoid;
-            -webkit-column-break-inside: avoid;
-            page-break-inside: avoid;
-          }
-
-          /* Print-specific adjustments */
-          @media print {
-            body { 
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            .section-table {
-              margin-bottom: 25mm; /* This could be adjusted if needed */
-            }
-            .photo-card-row { 
-              margin-bottom: 15mm; 
-            }
-          }
-        </style>
-      </head>
-      <body>
-        <h1>Audit Report: ${currentCategoryName}</h1>
-        ${sectionsHtml}
-        ${photoAnnexHtml}
-      </body>
-    </html>
-  `;
+  addPageNumbers();
+  return doc.output("datauristring");
 };
