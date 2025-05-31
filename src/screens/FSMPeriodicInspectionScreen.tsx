@@ -691,7 +691,7 @@ export default function FSMPeriodicInspectionScreen() {
           </Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -756,7 +756,7 @@ export default function FSMPeriodicInspectionScreen() {
           <Text style={styles.sectionHeader}>B. ESCAPE ROUTES</Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -847,7 +847,7 @@ export default function FSMPeriodicInspectionScreen() {
           <Text style={styles.sectionHeader}>C. FIRE DOORS</Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -991,7 +991,7 @@ export default function FSMPeriodicInspectionScreen() {
           </Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -1057,7 +1057,7 @@ export default function FSMPeriodicInspectionScreen() {
           <Text style={styles.sectionHeader}>E. HOSEREELS</Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -1147,7 +1147,7 @@ export default function FSMPeriodicInspectionScreen() {
           <Text style={styles.sectionHeader}>F. FIRE EXTINGUISHERS</Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -1263,7 +1263,7 @@ export default function FSMPeriodicInspectionScreen() {
           <Text style={styles.sectionHeader}>G. HYDRANT</Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -1329,7 +1329,7 @@ export default function FSMPeriodicInspectionScreen() {
           </Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -1406,7 +1406,7 @@ export default function FSMPeriodicInspectionScreen() {
           <Text style={styles.sectionHeader}>I. Fire Command Centre</Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -1472,7 +1472,7 @@ export default function FSMPeriodicInspectionScreen() {
           </Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -1538,7 +1538,7 @@ export default function FSMPeriodicInspectionScreen() {
           </Text>
           <View style={styles.table}>
             <View style={styles.tableHeaderRow}>
-              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/No</Text>
+              <Text style={[styles.tableHeaderCell, styles.thSNo]}>S/N</Text>
               <Text style={[styles.tableHeaderCell, styles.thDescription]}>
                 Description
               </Text>
@@ -1730,12 +1730,12 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "center",
   },
-  thSNo: { width: "12%" },
+  thSNo: { width: "12.5%" },
   thDescription: { flex: 1 },
-  thStatus: { width: "20%" }, // User confirmed 20%
-  tdSNo: { width: "12%", textAlign: "center" },
+  thStatus: { width: "22%" }, // User confirmed 20%
+  tdSNo: { width: "12.5%", textAlign: "center" },
   tdDescription: { flex: 1, alignItems: "flex-start" },
-  tdStatus: { width: "20%", paddingVertical: 5 }, // User confirmed 20%
+  tdStatus: { width: "22%", paddingVertical: 5 }, // User confirmed 20%
 
   checkboxGroupContainer: {
     flexDirection: "row",
