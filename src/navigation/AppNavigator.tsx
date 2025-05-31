@@ -5,7 +5,8 @@ import HomeScreen from "../screens/HomeScreen";
 import AuditCategoriesScreen from "../features/auditPropertyChecklist/screens/AuditCategoriesScreen";
 import AuditChecklistMainScreen from "../features/auditPropertyChecklist/screens/AuditChecklistMainScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { View, Text, TouchableOpacity } from 'react-native'; // Ensure View and Text are imported for PlaceholderScreen
+import { View, Text, TouchableOpacity } from 'react-native';
+import FSMPeriodicInspectionScreen from '../screens/FSMPeriodicInspectionScreen'; // <<< ADD THIS IMPORT
 
 // Define a type for our App Stack parameters
 export type AppStackParamList = {
@@ -81,7 +82,8 @@ const AppNavigator = () => {
       <AppStack.Screen name="BuildingInspectionsMonthly" component={PlaceholderScreen} options={{ title: "Building Inspections Monthly" }} />
       <AppStack.Screen name="HealthSafetyDailyTBM" component={PlaceholderScreen} options={{ title: "Health & Safety TBM" }} />
       <AppStack.Screen name="SafetySiteInspection" component={PlaceholderScreen} options={{ title: "Safety Site Inspection" }} />
-      <AppStack.Screen name="FSMPeriodicInspection" component={PlaceholderScreen} options={{ title: "FSM Periodic Inspection" }} />
+      {/* MODIFIED: Point to the new screen */}
+      <AppStack.Screen name="FSMPeriodicInspection" component={FSMPeriodicInspectionScreen} options={{ title: "FSM Periodic Inspection" }} />
     </AppStack.Navigator>
   );
 };

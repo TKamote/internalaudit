@@ -74,9 +74,12 @@ interface AuditListItemProps {
     newRemark: string
   ) => void;
   onPhotoTake: (
+    // MODIFIED: Add width and height parameters
     itemId: string,
     sectionId: string,
-    photoUri: string | null
+    photoUri: string | null,
+    originalWidth?: number, // Add originalWidth
+    originalHeight?: number // Add originalHeight
   ) => void;
   sectionId: string;
 }
@@ -117,14 +120,17 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
       try {
         const pickerResult = await ImagePicker.launchCameraAsync({
           allowsEditing: false,
-          quality: 0.5,
+          quality: 0.5, // Consider if higher quality is needed for PDF, but 0.5 is good for performance
+          // You might want to explicitly set aspect if needed, but default should be fine
         });
         if (
           !pickerResult.canceled &&
           pickerResult.assets &&
           pickerResult.assets.length > 0
         ) {
-          onPhotoTake(item.id, sectionId, pickerResult.assets[0].uri);
+          const asset = pickerResult.assets[0];
+          // MODIFIED: Pass width and height to onPhotoTake
+          onPhotoTake(item.id, sectionId, asset.uri, asset.width, asset.height);
         }
       } catch (error) {
         console.error("Error launching camera: ", error);
@@ -135,7 +141,8 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
     // --- Logic for removing a photo ---
     const triggerRemovePhoto = () => {
       if (item.type === "header") return;
-      onPhotoTake(item.id, sectionId, null);
+      // MODIFIED: When removing, pass null for URI and undefined for dimensions
+      onPhotoTake(item.id, sectionId, null, undefined, undefined);
     };
 
     const isPhotoTakingDisabled =
@@ -458,7 +465,14 @@ const AuditChecklistMainScreen = () => {
   );
 
   const handleItemPhotoTake = useCallback(
-    (itemId: string, sectionId: string, photoUri: string | null) => {
+    (
+      // MODIFIED: Add width and height parameters
+      itemId: string,
+      sectionId: string,
+      photoUri: string | null,
+      originalWidth?: number,
+      originalHeight?: number
+    ) => {
       setAuditSections((prevSections) => {
         const section = prevSections.find((s) => s.id === sectionId);
         let itemChanged = false;
@@ -478,7 +492,9 @@ const AuditChecklistMainScreen = () => {
           const currentItem = findItem(section.items);
           if (
             currentItem &&
-            (currentItem.photoUri || null) !== (photoUri || null)
+            ((currentItem.photoUri || null) !== (photoUri || null) ||
+              currentItem.originalImageWidth !== originalWidth || // Check dimensions change
+              currentItem.originalImageHeight !== originalHeight)
           ) {
             itemChanged = true;
           }
@@ -494,6 +510,9 @@ const AuditChecklistMainScreen = () => {
           (item) => ({
             ...item,
             photoUri: photoUri,
+            // MODIFIED: Update originalImageWidth and originalImageHeight
+            originalImageWidth: photoUri ? originalWidth : undefined,
+            originalImageHeight: photoUri ? originalHeight : undefined,
           })
         );
       });

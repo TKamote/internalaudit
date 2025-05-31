@@ -56,15 +56,13 @@ export const generatePdfWithJsPDF = async (
 
   const photoItemsForAnnex: AuditItemData[] = [];
 
-  // MODIFIED: Symmetrical 10mm page margins
   const pageMargin = { top: 15, right: 10, bottom: 15, left: 10 };
-  const pageWidth = doc.internal.pageSize.getWidth(); // Typically 210mm for A4
-  const pageHeight = doc.internal.pageSize.getHeight(); // Typically 297mm for A4
-  const contentWidth = pageWidth - pageMargin.left - pageMargin.right; // 210 - 3 - 20 = 187mm
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const contentWidth = pageWidth - pageMargin.left - pageMargin.right;
   let currentY = pageMargin.top;
 
   const addPageNumbers = () => {
-    // ... (addPageNumbers function remains the same) ...
     const pageCount = doc.getNumberOfPages();
     for (let i = 1; i <= pageCount; i++) {
       doc.setPage(i);
@@ -79,43 +77,38 @@ export const generatePdfWithJsPDF = async (
     }
   };
 
-  // --- Main Title ---
+  // Main Report Title
   doc.setFontSize(12);
   doc.setTextColor(44, 62, 80);
-  doc.text(
-    `Audit Report: ${currentCategoryName}`,
-    pageWidth / 2, // Centered
-    currentY,
-    { align: "center" }
-  );
-  currentY += 5; // MODIFIED: Further reduced space after title
+  doc.text(`Audit Report: ${currentCategoryName}`, pageWidth / 2, currentY, {
+    align: "center",
+  });
+  currentY += 5; // Space after title
   doc.setLineWidth(0.5);
-  doc.setDrawColor(52, 152, 219);
+  doc.setDrawColor(52, 152, 219); // Theme color for underline
   doc.line(pageMargin.left, currentY, pageWidth - pageMargin.right, currentY);
-  currentY += 6; // MODIFIED: Further reduced space after border
+  currentY += 6; // Space after underline
 
-  // --- Process Sections and Items for Tables ---
   const transformItemDataForTable = (
     items: AuditItemData[],
     indentLevel = 0
   ): any[] => {
     let tableRows: any[] = [];
     items.forEach((item) => {
-      const indentPrefix = " ".repeat(indentLevel * 2); // Simple text indent
+      const indentPrefix = " ".repeat(indentLevel * 2);
 
       if (item.type === "header") {
-        // Add header row (could be styled differently in autoTable)
         tableRows.push([
           {
             content: `${indentPrefix}${item.serialNumber || ""} ${
               item.description || ""
             }`,
-            colSpan: 7, // Span across all columns
+            colSpan: 7, // Span all 7 columns
             styles: {
               fontStyle: "bold",
-              fillColor: [240, 240, 240], // Light grey #f0f0f0
+              fillColor: [240, 240, 240], // Light grey for header
               halign: "left",
-              fontSize: 9, // MODIFIED: Ensure sub-header items are also font size 9
+              fontSize: 9, // Consistent font size
             },
           },
         ]);
@@ -125,7 +118,6 @@ export const generatePdfWithJsPDF = async (
           );
         }
       } else {
-        // MODIFIED: Display "N/A" for not-applicable, "Yes" for conformed
         let conformityDisplay = "";
         if (item.conformity === "conformed") {
           conformityDisplay = "Yes";
@@ -133,76 +125,71 @@ export const generatePdfWithJsPDF = async (
           conformityDisplay = "N/A";
         }
 
-        let ncStatus = "";
+        let ncStatus = ""; // For "Not Conformed Maj./Min." column
         if (item.conformity === "not-conformed") {
           ncStatus =
             item.riskLevel === "H"
-              ? "Major" // Entries remain full words
+              ? "Major"
               : item.riskLevel === "L" || item.riskLevel === "M"
-              ? "Minor" // Entries remain full words
-              : "";
+              ? "Minor"
+              : ""; // Should ideally not be empty if not-conformed
         }
-        // MODIFIED: Add "N/A" to auditorRemarks if empty
         const auditorRemarksDisplay =
           item.conformity === "not-applicable"
             ? ""
-            : item.auditorRemarks || "N/A";
+            : item.auditorRemarks || "N/A"; // Show N/A if empty and applicable
 
         tableRows.push([
           `${indentPrefix}${item.serialNumber || ""}`,
-          `${indentPrefix}${item.description || ""}`, // Apply indent to description too if desired
-          item.riskLevel || "",
-          conformityDisplay,
-          ncStatus,
-          auditorRemarksDisplay, // Use display version
-          "", // Site Team's Remarks placeholder
+          `${indentPrefix}${item.description || ""}`,
+          item.riskLevel || "", // Risk Level
+          conformityDisplay, // Conformed (Yes/N/A)
+          ncStatus, // Not Conformed (Major/Minor)
+          auditorRemarksDisplay, // Auditor's Remarks
+          "", // Site Team's Remarks (placeholder)
         ]);
 
-        // MODIFIED: Only add to photo annex if NOT "not-applicable"
         if (item.photoUri && item.conformity !== "not-applicable") {
-          photoItemsForAnnex.push(item);
+          photoItemsForAnnex.push({
+            ...item, // Spread existing item properties
+            originalImageWidth: item.originalImageWidth, // Ensure these are passed
+            originalImageHeight: item.originalImageHeight,
+          });
         }
       }
     });
     return tableRows;
   };
 
-  let hasRenderedTable = false; // Flag to track if any table was rendered
+  let hasRenderedTable = false;
 
   for (let sectionIndex = 0; sectionIndex < sections.length; sectionIndex++) {
     const section = sections[sectionIndex];
-    hasRenderedTable = true; // A section table is about to be rendered
+    hasRenderedTable = true; // Mark that at least one table section is being rendered
 
+    // Page break logic before starting a new section table
     if (sectionIndex > 0) {
-      // Check if we need a new page before starting a new section table
-      // This is a rough check; autoTable handles its own page breaks too.
-      // We might need to add a more robust check or let autoTable handle it primarily.
+      // Check if there's enough space for section title and some rows
       if (currentY + 40 > pageHeight - pageMargin.bottom) {
-        // Estimate space needed for section header + some rows
         doc.addPage();
         currentY = pageMargin.top;
       } else {
-        currentY += 10; // Add some space before the next section if on same page
+        currentY += 10; // Space between tables
       }
     }
 
-    // Section Name Header within the table structure (or as separate text)
-    // For jsPDF-AutoTable, it's often cleaner to add it as a row in the table
-    // or as text just before the table.
-
     const sectionTableBody = [];
-
-    // Section Header Row
+    // Add section name as a styled row
     sectionTableBody.push([
       {
         content: `Section: ${section.name}`,
-        colSpan: 7,
+        colSpan: 7, // Span all 7 columns
         styles: {
           fontStyle: "bold",
-          fillColor: [224, 224, 224], // #e0e0e0
-          textColor: [51, 51, 51], // #333
-          halign: "left", // MODIFIED: Ensure section name is left-aligned
-          fontSize: 9, // MODIFIED: Section name font size to 9
+          fillColor: [224, 224, 224], // Slightly darker grey for section name
+          textColor: [51, 51, 51],
+          halign: "left",
+          fontSize: 9, // Consistent font size
           cellPadding: 2,
         },
       },
@@ -215,28 +202,27 @@ export const generatePdfWithJsPDF = async (
         {
           content: "No items in this section.",
           colSpan: 7,
-          styles: { halign: "center", cellPadding: 2, fontSize: 9 }, // MODIFIED: Ensure font size 9
+          styles: { halign: "center", cellPadding: 2, fontSize: 9 },
         },
       ]);
     }
 
-    // User's desired relative column widths
+    // Original column widths that were working well before the incorrect adjustment
     const relativeColWidths = {
       sn: 0.05,
       desc: 0.28,
       risk: 0.07,
       conf: 0.07,
-      nc: 0.105,
-      auditorRemarks: 0.18,
-      siteRemarks: 0.18,
+      nc: 0.105, // "Not Conformed Maj./Min."
+      auditorRemarks: 0.2125, // Adjusted to make sum 1
+      siteRemarks: 0.2125, // Adjusted to make sum 1
     };
+    // Sum: 0.05 + 0.28 + 0.07 + 0.07 + 0.105 + 0.2125 + 0.2125 = 1.00
 
-    // Normalize these widths to sum to 1.0 so they use the full contentWidth
     const sumOfRelativeWidths = Object.values(relativeColWidths).reduce(
       (sum, w) => sum + w,
       0
-    ); // Should be 0.935
-
+    );
     const normalizedColWidths = {
       sn: relativeColWidths.sn / sumOfRelativeWidths,
       desc: relativeColWidths.desc / sumOfRelativeWidths,
@@ -246,7 +232,6 @@ export const generatePdfWithJsPDF = async (
       auditorRemarks: relativeColWidths.auditorRemarks / sumOfRelativeWidths,
       siteRemarks: relativeColWidths.siteRemarks / sumOfRelativeWidths,
     };
-    // Now, sum of normalizedColWidths will be 1.0
 
     autoTable(doc, {
       head: [
@@ -255,7 +240,7 @@ export const generatePdfWithJsPDF = async (
           "Description",
           "Risk Level",
           "Conformed",
-          "Not Conformed Maj./Min.", // MODIFIED: Header text
+          "Not Conformed Maj./Min.",
           "Auditor's Remarks",
           "Site Team's Remarks",
         ],
@@ -263,16 +248,15 @@ export const generatePdfWithJsPDF = async (
       body: sectionTableBody,
       startY: currentY,
       theme: "grid",
-      // tableWidth: 'auto', // This would make the table span contentWidth by default
       styles: {
         fontSize: 9,
         cellPadding: 1.5,
-        valign: "top",
-        overflow: "linebreak",
+        valign: "top", // Keep content at the top of cells
+        overflow: "linebreak", // Allow text to wrap
       },
       headStyles: {
-        fillColor: [242, 242, 242],
-        textColor: [51, 51, 51],
+        fillColor: [242, 242, 242], // Light grey for header
+        textColor: [51, 51, 51], // Dark grey text
         fontStyle: "bold",
         fontSize: 9,
         halign: "center",
@@ -297,7 +281,7 @@ export const generatePdfWithJsPDF = async (
       },
       margin: { left: pageMargin.left, right: pageMargin.right }, // Explicitly pass page margins
     });
-    currentY = (doc as any).lastAutoTable.finalY + 10;
+    currentY = (doc as any).lastAutoTable.finalY + 10; // Space after table
   }
 
   // --- Photo Annex ---
@@ -306,8 +290,10 @@ export const generatePdfWithJsPDF = async (
       doc.addPage();
       currentY = pageMargin.top;
     } else {
+      // If no tables, but currentY might have been advanced by the main title,
+      // check if we need to "reset" to top for the annex if it's the *only* content block.
       if (
-        currentY + 60 > pageHeight - pageMargin.bottom &&
+        currentY + 60 > pageHeight - pageMargin.bottom && // Basic space check
         currentY > pageMargin.top
       ) {
         doc.addPage();
@@ -319,21 +305,21 @@ export const generatePdfWithJsPDF = async (
     doc.setFontSize(16);
     doc.setTextColor(44, 62, 80);
     doc.text("Photo Annex", pageWidth / 2, currentY, { align: "center" });
-    currentY += 6;
-    doc.setLineWidth(0.3);
-    doc.setDrawColor(52, 152, 219);
-    const underlineLength = contentWidth * 0.4; // Shorter underline
-    doc.line(
-      pageWidth / 2 - underlineLength / 2, // Centered underline
-      currentY,
-      pageWidth / 2 + underlineLength / 2,
-      currentY
-    );
-    currentY += 10;
-    const annexTitleHeight = currentY - annexTitleStartY; // Actual height taken by title section
+    currentY += 6; // Space for title text itself
+    // MODIFIED (1): Removed decorative line below "Photo Annex" title
+    // doc.setLineWidth(0.3);
+    // doc.setDrawColor(52, 152, 219);
+    // const underlineLength = contentWidth * 0.4;
+    // doc.line(
+    //   pageWidth / 2 - underlineLength / 2,
+    //   currentY,
+    //   pageWidth / 2 + underlineLength / 2,
+    //   currentY
+    // );
+    currentY += 3; // Space after title text (was 1.5 after line, now 3 after text directly)
+    const annexTitleHeight = currentY - annexTitleStartY;
 
-    // Calculate dimensions for a 2x2 grid of cards per page
-    const pageNumberAllowance = 10; // Approximate space for page number at bottom
+    const pageNumberAllowance = 10;
     const availableHeightForCards =
       pageHeight -
       pageMargin.top -
@@ -341,18 +327,29 @@ export const generatePdfWithJsPDF = async (
       annexTitleHeight -
       pageNumberAllowance;
 
-    const interRowSpacing = 4; // Space between the two rows of cards
-    const targetCardHeight = (availableHeightForCards - interRowSpacing) / 2;
+    const numberOfRowsPerPage = 3;
+    // MODIFIED (2): Add vertical gap (5mm) BETWEEN card rows
+    const interRowSpacing = 5; // Was 3 or 4, now 5mm
+    const totalInterRowSpacing = (numberOfRowsPerPage - 1) * interRowSpacing;
 
-    const newColumnGap = contentWidth * 0.02; // Narrower column gap (2% of contentWidth)
+    let baseTargetCardHeight =
+      (availableHeightForCards - totalInterRowSpacing) / numberOfRowsPerPage;
+    // MODIFIED: Increase targetCardHeight by a further 2%
+    const targetCardHeight = baseTargetCardHeight * 0.99807; // Was baseTargetCardHeight * 0.9785
+
+    const newColumnGap = contentWidth * 0.02;
     const targetCardWidth = (contentWidth - newColumnGap) / 2;
 
-    // Define padding and spacing within the card
-    const cardInternalPadding = 3;
-    const textBlockSpacing = 5; // Space between "Auditor Remarks" block and "Site Team Remarks" box
+    // MODIFIED: Define separate vertical padding for image and text column
+    const imageVerticalPadding = 2.5; // Padding for the image area (top and bottom)
+    const textColumnVerticalPadding = 6; // Specific 10mm padding for text column (top and bottom)
+    const cardHorizontalPadding = 3; // Existing padding for left/right of image/text areas
+
+    const textBlockSpacing = 3; // Space between text blocks (e.g., auditor remarks and site team label)
+    const cardTextLineHeight = 3.2;
 
     for (let i = 0; i < photoItemsForAnnex.length; i += 2) {
-      const item1 = photoItemsForAnnex[i]; // This will always be a valid AuditItemData if loop condition is met
+      const item1 = photoItemsForAnnex[i];
       const item2 =
         i + 1 < photoItemsForAnnex.length ? photoItemsForAnnex[i + 1] : null;
 
@@ -362,33 +359,21 @@ export const generatePdfWithJsPDF = async (
       ) {
         doc.addPage();
         currentY = pageMargin.top;
-        // ... (redraw annex title on new page) ...
         doc.setFontSize(16);
         doc.setTextColor(44, 62, 80);
         doc.text("Photo Annex", pageWidth / 2, currentY, { align: "center" });
-        currentY += 6;
-        doc.setLineWidth(0.3);
-        doc.setDrawColor(52, 152, 219);
-        doc.line(
-          pageWidth / 2 - underlineLength / 2,
-          currentY,
-          pageWidth / 2 + underlineLength / 2,
-          currentY
-        );
-        currentY += 10;
+        currentY += 6; // Space for title text
+        currentY += 3; // Consistent space after title text on new page
       }
 
       let cardX = pageMargin.left;
       const cardRowY = currentY;
 
-      // Create an array of items for the current row, filtering out nulls
       const currentRowItems: AuditItemData[] = [];
       if (item1) currentRowItems.push(item1);
       if (item2) currentRowItems.push(item2);
 
       for (const [index, currentItem] of currentRowItems.entries()) {
-        // Renamed 'item' to 'currentItem' for clarity
-        // currentItem here is guaranteed to be AuditItemData, not null.
         if (index === 1) {
           cardX += targetCardWidth + newColumnGap;
         }
@@ -396,19 +381,18 @@ export const generatePdfWithJsPDF = async (
         doc.setDrawColor(150, 150, 150);
         doc.rect(cardX, cardRowY, targetCardWidth, targetCardHeight, "S");
 
-        const imageAreaX = cardX + cardInternalPadding;
-        const imageAreaY = cardRowY + cardInternalPadding;
+        // MODIFIED: Adjust image area for its specific vertical padding
+        const imageAreaX = cardX + cardHorizontalPadding;
+        const imageAreaY = cardRowY + imageVerticalPadding; // Use image's vertical padding
         const imageAreaWidth =
-          targetCardWidth * 0.6 - cardInternalPadding * 1.5;
-        const imageAreaMaxHeight = targetCardHeight - cardInternalPadding * 2;
+          targetCardWidth * 0.6 - cardHorizontalPadding * 1.5; // Keep horizontal padding logic
+        const imageAreaMaxHeight = targetCardHeight - imageVerticalPadding * 2; // Account for image's top & bottom padding
 
         if (currentItem.photoUri) {
-          // Check currentItem
           const base64Image = await convertImageToBase64(currentItem.photoUri);
           if (base64Image) {
-            // Access properties on currentItem, provide fallbacks if original dimensions might be undefined
-            const originalImgWidth = currentItem.originalImageWidth || 100; // Fallback
-            const originalImgHeight = currentItem.originalImageHeight || 100; // Fallback
+            const originalImgWidth = currentItem.originalImageWidth || 100;
+            const originalImgHeight = currentItem.originalImageHeight || 100;
 
             const scale = Math.min(
               imageAreaWidth / originalImgWidth,
@@ -434,7 +418,7 @@ export const generatePdfWithJsPDF = async (
               );
             } catch (e) {
               console.error(
-                `Error adding image for S/N ${currentItem.serialNumber}:`, // Use currentItem
+                `Error adding image for S/N ${currentItem.serialNumber}:`,
                 e
               );
               doc.setFontSize(7);
@@ -467,76 +451,98 @@ export const generatePdfWithJsPDF = async (
           );
         }
 
-        let textCurrentY = cardRowY + cardInternalPadding;
+        // MODIFIED: Adjust text area for its specific 10mm vertical padding
+        let textCurrentY = cardRowY + textColumnVerticalPadding; // Start text after text column's 10mm top padding
         const textDetailsAreaX =
-          cardX + targetCardWidth * 0.6 + cardInternalPadding / 2;
+          cardX + targetCardWidth * 0.6 + cardHorizontalPadding / 2;
         const textDetailsWidth =
-          targetCardWidth * 0.4 - cardInternalPadding * 1.5;
+          targetCardWidth * 0.4 - cardHorizontalPadding * 1.5; // Keep horizontal padding logic
 
         doc.setFontSize(8);
         doc.setTextColor(51, 51, 51);
 
-        // Use currentItem for all text details
+        // S/N
         doc.text(
           `S/N: ${currentItem.serialNumber || "N/A"}`,
           textDetailsAreaX,
           textCurrentY,
           { maxWidth: textDetailsWidth }
         );
-        textCurrentY += 4;
+        textCurrentY += cardTextLineHeight;
 
-        doc.text(
-          `Status: ${getConformityStatusForAnnex(
-            currentItem.conformity,
-            currentItem.riskLevel
-          )}`,
-          textDetailsAreaX,
-          textCurrentY,
-          { maxWidth: textDetailsWidth }
-        );
-        textCurrentY += 4;
+        // Status
+        const statusText = `Status: ${getConformityStatusForAnnex(
+          currentItem.conformity,
+          currentItem.riskLevel
+        )}`;
+        const statusLines = doc.splitTextToSize(statusText, textDetailsWidth);
+        doc.text(statusLines, textDetailsAreaX, textCurrentY);
+        textCurrentY += statusLines.length * cardTextLineHeight;
 
+        // Auditor's Remarks Label
         doc.text("Auditor's Remarks:", textDetailsAreaX, textCurrentY, {
           maxWidth: textDetailsWidth,
         });
-        textCurrentY += 4;
-        const auditorRemarks = doc.splitTextToSize(
-          currentItem.auditorRemarks || "N/A",
+        textCurrentY += cardTextLineHeight;
+        const auditorRemarksText = currentItem.auditorRemarks || "N/A";
+
+        // MODIFIED: Anchor Site Team's Remarks to bottom considering text column's 10mm padding
+        const siteTeamLabel = "Site Team's Remarks:";
+        const siteTeamLabelLines = doc.splitTextToSize(
+          siteTeamLabel,
           textDetailsWidth
         );
+        const siteTeamLabelHeight =
+          siteTeamLabelLines.length * cardTextLineHeight;
 
-        const siteRemarksBoxHeight = 20;
-        const spaceForAuditorRemarks =
+        let siteRemarksBoxHeight = 18 * 1.3; // Base height * 1.3 (30% increase)
+        const spaceBetweenLabelAndBox = 1.5; // Reduced space
+
+        // Calculate total height of the Site Team Remarks section (label + space + box)
+        const siteTeamSectionTotalHeight =
+          siteTeamLabelHeight + spaceBetweenLabelAndBox + siteRemarksBoxHeight;
+
+        // Determine Y position for the Site Team Remarks label (from bottom of card content area, using text column's 10mm padding)
+        const siteTeamLabelY =
           cardRowY +
           targetCardHeight -
-          cardInternalPadding -
-          textCurrentY -
-          siteRemarksBoxHeight -
-          textBlockSpacing;
+          textColumnVerticalPadding - // Use text column's 10mm bottom padding
+          siteTeamSectionTotalHeight;
 
+        // Calculate available space for Auditor's Remarks
+        const spaceForAuditorRemarks =
+          siteTeamLabelY - textBlockSpacing - textCurrentY;
+
+        // Draw Auditor's Remarks
+        const auditorRemarksLines = doc.splitTextToSize(
+          auditorRemarksText,
+          textDetailsWidth
+        );
         let linesDrawn = 0;
-        for (const line of auditorRemarks) {
-          const lineHeight = 3.5;
-          if ((linesDrawn + 1) * lineHeight > spaceForAuditorRemarks - 2) {
+        for (const line of auditorRemarksLines) {
+          if (
+            (linesDrawn + 1) * cardTextLineHeight >
+            spaceForAuditorRemarks - 0.5 // Small buffer
+          ) {
             break;
           }
           doc.text(
             line,
             textDetailsAreaX,
-            textCurrentY + linesDrawn * lineHeight,
+            textCurrentY + linesDrawn * cardTextLineHeight,
             {
               maxWidth: textDetailsWidth,
             }
           );
           linesDrawn++;
         }
-        textCurrentY += linesDrawn * 3.5 + textBlockSpacing;
 
+        // Draw Site Team's Remarks Label at its calculated Y position
+        doc.text(siteTeamLabelLines, textDetailsAreaX, siteTeamLabelY);
+
+        // Draw Site Team's Remarks Box below the label
         const siteRemarksBoxY =
-          cardRowY +
-          targetCardHeight -
-          cardInternalPadding -
-          siteRemarksBoxHeight;
+          siteTeamLabelY + siteTeamLabelHeight + spaceBetweenLabelAndBox;
         doc.setDrawColor(200, 200, 200);
         doc.rect(
           textDetailsAreaX,
@@ -545,15 +551,8 @@ export const generatePdfWithJsPDF = async (
           siteRemarksBoxHeight,
           "S"
         );
-        doc.text(
-          "Site Team's Remarks:",
-          textDetailsAreaX + cardInternalPadding / 2,
-          siteRemarksBoxY + 5,
-          { maxWidth: textDetailsWidth - cardInternalPadding }
-        );
-      } // End of for...of loop for items in a row
-
-      currentY += targetCardHeight + interRowSpacing; // Move Y to the start of the next row of cards
+      }
+      currentY += targetCardHeight + interRowSpacing;
     }
   }
 
