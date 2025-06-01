@@ -1,0 +1,126 @@
+[
+  {
+    "id": "A",
+    "title": "A. PROTECTED AREA / CORRIDORS / LOBBIES / PASSAGEWAYS / STAIRCASES",
+    "items": [
+      { "key": "stateA1", "no": "i.", "desc": "Such areas are clear of obstruction" },
+      { "key": "stateA2", "no": "ii.", "desc": "Services pipes (gas, oil) are not passing through the protected zones" },
+      { "key": "stateA3", "no": "iii.", "desc": "Escape routes plans are provided at the lobbies" }
+    ],
+    "commentKey": "commentsA"
+  },
+  {
+    "id": "B",
+    "title": "B. ESCAPE ROUTES",
+    "items": [
+      { "key": "stateB1", "no": "i.", "desc": "Exit signs and directional signs are sufficiently provided" },
+      { "key": "stateB2", "no": "ii.", "desc": "Final exit discharge points not obstructed" },
+      { "key": "stateB3", "no": "iii.", "desc": "Door release devices are in good working condition" },
+      { "key": "stateB4", "no": "iv.", "desc": "The lightings and illumination of staircases are good." },
+      { "key": "stateB5", "no": "v.", "desc": "The passageways and office configuration are maintained with at least 1.2m clearance" }
+    ],
+    "commentKey": "commentsB"
+  },
+  {
+    "id": "C",
+    "title": "C. FIRE DOORS",
+    "items": [
+      { "key": "stateC1", "no": "i.", "desc": "Door closers are provided and are in good condition" },
+      { "key": "stateC2", "no": "ii.", "desc": "PSB labels provided for all fire doors and frames" },
+      { "key": "stateC3", "no": "iii.", "desc": "No door stopper devices installed" },
+      { "key": "stateC4", "no": "iv.", "desc": "Doors are close-fitting." },
+      { "key": "stateC5", "no": "v.", "desc": "Swing of doors in direction of escape" },
+      { "key": "stateC6", "no": "vi.", "desc": "Clear of obstruction" },
+      { "key": "stateC7", "no": "vii.", "desc": "Vision panels are provided" },
+      { "key": "stateC8", "no": "viii.", "desc": "Fire doors are not locked" },
+      { "key": "stateC9", "no": "ix.", "desc": "Door handles, door closers, door bodies are in good condition" }
+    ],
+    "commentKey": "commentsC"
+  },
+  {
+    "id": "D",
+    "title": "D. EMERGENCY / EXIT AND LIGHTING",
+    "items": [
+      { "key": "stateD1", "no": "i.", "desc": "Exit signs and emergency lighting adequately provided along escape routes, public areas, staircase, and essential services areas" },
+      { "key": "stateD2", "no": "ii.", "desc": "Exit signs are visible" },
+      { "key": "stateD3", "no": "iii.", "desc": "Exit signs are functioning well" }
+    ],
+    "commentKey": "commentsD"
+  },
+  {
+    "id": "E",
+    "title": "E. HOSEREELS",
+    "items": [
+      { "key": "stateE1", "no": "i.", "desc": "Nozzle condition satisfactory" },
+      { "key": "stateE2", "no": "ii.", "desc": "Stopcock condition satisfactory" },
+      { "key": "stateE3", "no": "iii.", "desc": "Clear of obstruction" },
+      { "key": "stateE4", "no": "iv.", "desc": "Servicing labeling provided for cabinet" },
+      { "key": "stateE5", "no": "v.", "desc": "Date service is shown and has not expired" }
+    ],
+    "commentKey": "commentsE"
+  },
+  {
+    "id": "F",
+    "title": "F. FIRE EXTINGUISHERS",
+    "items": [
+      { "key": "stateF1", "no": "i.", "desc": "Properly hung on bracket/ inside labeled cabinet" },
+      { "key": "stateF2", "no": "ii.", "desc": "Date service is shown and has not expired" },
+      { "key": "stateF3", "no": "iii.", "desc": "Clear of obstruction" },
+      { "key": "stateF4", "no": "iv.", "desc": "Bears SISIR label" },
+      { "key": "stateF5", "no": "v.", "desc": "Pressure gauge of Fire Extinguishers within functional range" },
+      { "key": "stateF6", "no": "vi.", "desc": "Fire Extinguishers seal not broken" },
+      { "key": "stateF7", "no": "vii.", "desc": "Fire Extinguishers body not rusty" }
+    ],
+    "commentKey": "commentsF"
+  },
+  {
+    "id": "G",
+    "title": "G. HYDRANT",
+    "items": [
+      { "key": "stateG1", "no": "i.", "desc": "Clear of obstruction" },
+      { "key": "stateG2", "no": "ii.", "desc": "Cover for spindle chamber visible" },
+      { "key": "stateG3", "no": "iii.", "desc": "Blank caps provided to outlets" }
+    ],
+    "commentKey": "commentsG"
+  },
+  {
+    "id": "H",
+    "title": "H. Dry Riser Breeching Inlet / Dry Riser Landing Valves",
+    "items": [
+      { "key": "stateH1", "no": "i.", "desc": "Clear of dirt or corrosion" },
+      { "key": "stateH2", "no": "ii.", "desc": "Clear of obstruction or blockage to the inlets" },
+      { "key": "stateH3", "no": "iii.", "desc": "Valves are strap-locked" },
+      { "key": "stateH4", "no": "iv.", "desc": "Compartment free of foreign objects" }
+    ],
+    "commentKey": "commentsH"
+  },
+  {
+    "id": "I",
+    "title": "I. Fire Command Centre",
+    "items": [
+      { "key": "stateI1", "no": "i.", "desc": "PA system functioning" },
+      { "key": "stateI2", "no": "ii.", "desc": "Battery working properly" },
+      { "key": "stateI3", "no": "iii.", "desc": "Lift panel control functioning" }
+    ],
+    "commentKey": "commentsI"
+  },
+  {
+    "id": "J",
+    "title": "J. Main / Sub Fire Alarm panel",
+    "items": [
+      { "key": "stateJ1", "no": "i.", "desc": "Battery working properly" },
+      { "key": "stateJ2", "no": "ii.", "desc": "All LED lights working - lamp test" },
+      { "key": "stateJ3", "no": "iii.", "desc": "Any alerts (warnings), alarms or faults indicated in the panel" }
+    ],
+    "commentKey": "commentsJ"
+  },
+  {
+    "id": "K",
+    "title": "K. Fireman Access Panel, Fire Engine & Fire Hydrant",
+    "items": [
+      { "key": "stateK1", "no": "i.", "desc": "No obstruction to Fire men accesses panel windows" },
+      { "key": "stateK2", "no": "ii.", "desc": "No obstruction to fire engine parking lot" }
+    ],
+    "commentKey": "commentsK"
+  }
+]
