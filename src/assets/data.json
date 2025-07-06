@@ -13,38 +13,17 @@
               "serialNumber": "1.0",
               "description": "Customer Orientation Policies (Main Header)",
               "type": "header",
-              "subItems": [
-                {
-                  "id": "gen_item_1_1",
-                  "serialNumber": "1.1",
-                  "description": "Are all staff aware of the customer-oriented policies?",
-                  "type": "item",
-                  "riskLevel": "M",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "gen_item_1_2",
-                  "serialNumber": "1.2",
-                  "description": "Is there evidence of these policies being implemented?",
-                  "type": "item",
-                  "riskLevel": "M",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "gen_item_1_3",
-                  "serialNumber": "1.3",
-                  "description": "Are policies reviewed and updated regularly?",
-                  "type": "item",
-                  "riskLevel": "M",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                }
-              ]
+              "subItems": []
+            },
+            {
+              "id": "gen_item_1",
+              "serialNumber": "1.0",
+              "description": "Customer Orientation Policies (placeholder item)",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
             },
             {
               "id": "gen_item_2",
@@ -58,8 +37,226 @@
             },
             {
               "id": "gen_item_3",
-              "serialNumber": "2.1",
+              "serialNumber": "3.0",
               "description": "Is there evidence of the things (another standalone item)",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_4",
+              "serialNumber": "4.0",
+              "description": "Are policy compliance procedures documented and followed?",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_5",
+              "serialNumber": "5.0",
+              "description": "Is there a process for handling policy violations?",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_6",
+              "serialNumber": "6.0",
+              "description": "Are staff training records maintained and up-to-date?",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_7",
+              "serialNumber": "7.0",
+              "description": "Is there a process for policy communication to new employees?",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_8",
+              "serialNumber": "8.0",
+              "description": "Are policy effectiveness reviews conducted regularly?",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_9",
+              "serialNumber": "9.0",
+              "description": "Is there a documented process for policy approval and authorization?",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_10",
+              "serialNumber": "10.0",
+              "description": "Are policy version controls maintained properly?",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_11",
+              "serialNumber": "11.0",
+              "description": "Is there evidence of stakeholder involvement in policy development?",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_12",
+              "serialNumber": "12.0",
+              "description": "Are policy implementation timelines documented and tracked?",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_group_13",
+              "serialNumber": "13.0",
+              "description": "Quality Management Systems (Main Header)",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "gen_item_13_1",
+                  "serialNumber": "13.1",
+                  "description": "Is there a documented quality management system in place?",
+                  "type": "item",
+                  "riskLevel": "H",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "gen_item_13_2",
+                  "serialNumber": "13.2",
+                  "description": "Are quality objectives defined and measurable?",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "gen_item_13_3",
+                  "serialNumber": "13.3",
+                  "description": "Is there evidence of continuous improvement activities?",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "gen_item_13_4",
+                  "serialNumber": "13.4",
+                  "description": "Are quality control processes documented and followed?",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "gen_item_13_5",
+                  "serialNumber": "13.5",
+                  "description": "Is there evidence of customer satisfaction monitoring?",
+                  "type": "item",
+                  "riskLevel": "L",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "gen_item_13_6",
+                  "serialNumber": "13.6",
+                  "description": "Are non-conformities tracked and addressed appropriately?",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "gen_item_13_7",
+                  "serialNumber": "13.7",
+                  "description": "Is there a process for management review of the quality system?",
+                  "type": "item",
+                  "riskLevel": "H",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "gen_item_13_8",
+                  "serialNumber": "13.8",
+                  "description": "Are quality records maintained and accessible?",
+                  "type": "item",
+                  "riskLevel": "L",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "gen_item_14",
+              "serialNumber": "14.0",
+              "description": "Are policy exceptions documented and properly authorized?",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_15",
+              "serialNumber": "15.0",
+              "description": "Is there a process for policy impact assessment?",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_16",
+              "serialNumber": "16.0",
+              "description": "Are policy archives maintained and accessible for reference?",
+              "type": "item",
+              "riskLevel": "L",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "gen_item_17",
+              "serialNumber": "17.0",
+              "description": "Is there evidence of cross-departmental policy coordination?",
               "type": "item",
               "riskLevel": "M",
               "conformity": null,
@@ -79,15 +276,35 @@
           "name": "Operational Control OC-01",
           "items": [
             {
-              "id": "oc01_item_group_1",
+              "id": "oc01_item_1",
               "serialNumber": "2.1.0",
-              "description": "Staff Orientation Procedures (Main Header)",
+              "description": "Staff Orientation Procedures (Sub-header 1)",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_2",
+              "serialNumber": "2.2.0",
+              "description": "Training Documentation (Sub-header 2)",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_group_3",
+              "serialNumber": "2.3.0",
+              "description": "Performance Monitoring (Sub-header 3)",
               "type": "header",
               "subItems": [
                 {
-                  "id": "oc01_item_1",
-                  "serialNumber": "2.1.1",
-                  "description": "Are all staff aware of the orientation?",
+                  "id": "oc01_item_3_1",
+                  "serialNumber": "2.3.1",
+                  "description": "Performance monitoring sub-item 1",
                   "type": "item",
                   "riskLevel": "M",
                   "conformity": null,
@@ -95,9 +312,9 @@
                   "photoUri": null
                 },
                 {
-                  "id": "oc01_item_2",
-                  "serialNumber": "2.1.2",
-                  "description": "Is orientation material up-to-date?",
+                  "id": "oc01_item_3_2",
+                  "serialNumber": "2.3.2",
+                  "description": "Performance monitoring sub-item 2",
                   "type": "item",
                   "riskLevel": "M",
                   "conformity": null,
@@ -105,9 +322,29 @@
                   "photoUri": null
                 },
                 {
-                  "id": "oc01_item_3",
-                  "serialNumber": "2.1.3",
-                  "description": "Are records of orientation completion maintained?",
+                  "id": "oc01_item_3_3",
+                  "serialNumber": "2.3.3",
+                  "description": "Performance monitoring sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc01_item_3_4",
+                  "serialNumber": "2.3.4",
+                  "description": "Performance monitoring sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc01_item_3_5",
+                  "serialNumber": "2.3.5",
+                  "description": "Performance monitoring sub-item 5",
                   "type": "item",
                   "riskLevel": "M",
                   "conformity": null,
@@ -118,8 +355,58 @@
             },
             {
               "id": "oc01_item_4",
-              "serialNumber": "2.2.0",
-              "description": "This is beautiful (standalone item).",
+              "serialNumber": "2.4.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_5",
+              "serialNumber": "2.5.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_6",
+              "serialNumber": "2.6.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_7",
+              "serialNumber": "2.7.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_8",
+              "serialNumber": "2.8.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc01_item_9",
+              "serialNumber": "2.9.0",
+              "description": "Sub-header 9 placeholder",
               "type": "item",
               "riskLevel": "M",
               "conformity": null,
@@ -134,8 +421,8 @@
           "items": [
             {
               "id": "oc02_item_1",
-              "serialNumber": "2.3.1",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "serialNumber": "2.10.0",
+              "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
               "conformity": null,
@@ -143,9 +430,239 @@
               "photoUri": null
             },
             {
-              "id": "oc02_item_2",
-              "serialNumber": "2.3.2",
-              "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "id": "oc02_item_group_2",
+              "serialNumber": "2.11.0",
+              "description": "Sub-header 2 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc02_item_2_1",
+                  "serialNumber": "2.11.1",
+                  "description": "Sub-header 2 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_2_2",
+                  "serialNumber": "2.11.2",
+                  "description": "Sub-header 2 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_2_3",
+                  "serialNumber": "2.11.3",
+                  "description": "Sub-header 2 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_2_4",
+                  "serialNumber": "2.11.4",
+                  "description": "Sub-header 2 sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_2_5",
+                  "serialNumber": "2.11.5",
+                  "description": "Sub-header 2 sub-item 5",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc02_item_group_3",
+              "serialNumber": "2.12.0",
+              "description": "Sub-header 3 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc02_item_3_1",
+                  "serialNumber": "2.12.1",
+                  "description": "Sub-header 3 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_3_2",
+                  "serialNumber": "2.12.2",
+                  "description": "Sub-header 3 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc02_item_group_4",
+              "serialNumber": "2.13.0",
+              "description": "Sub-header 4 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc02_item_4_1",
+                  "serialNumber": "2.13.1",
+                  "description": "Sub-header 4 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_4_2",
+                  "serialNumber": "2.13.2",
+                  "description": "Sub-header 4 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_4_3",
+                  "serialNumber": "2.13.3",
+                  "description": "Sub-header 4 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_4_4",
+                  "serialNumber": "2.13.4",
+                  "description": "Sub-header 4 sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc02_item_group_5",
+              "serialNumber": "2.14.0",
+              "description": "Sub-header 5 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc02_item_5_1",
+                  "serialNumber": "2.14.1",
+                  "description": "Sub-header 5 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_5_2",
+                  "serialNumber": "2.14.2",
+                  "description": "Sub-header 5 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_5_3",
+                  "serialNumber": "2.14.3",
+                  "description": "Sub-header 5 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_5_4",
+                  "serialNumber": "2.14.4",
+                  "description": "Sub-header 5 sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc02_item_group_6",
+              "serialNumber": "2.15.0",
+              "description": "Sub-header 6 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc02_item_6_1",
+                  "serialNumber": "2.15.1",
+                  "description": "Sub-header 6 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_6_2",
+                  "serialNumber": "2.15.2",
+                  "description": "Sub-header 6 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_6_3",
+                  "serialNumber": "2.15.3",
+                  "description": "Sub-header 6 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc02_item_6_4",
+                  "serialNumber": "2.15.4",
+                  "description": "Sub-header 6 sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc02_item_7",
+              "serialNumber": "2.16.0",
+              "description": "Sub-header 7 placeholder",
               "type": "item",
               "riskLevel": "M",
               "conformity": null,
@@ -153,9 +670,1301 @@
               "photoUri": null
             },
             {
-              "id": "oc02_item_3",
-              "serialNumber": "2.3.3",
-              "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+              "id": "oc02_item_8",
+              "serialNumber": "2.17.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_9",
+              "serialNumber": "2.18.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_10",
+              "serialNumber": "2.19.0",
+              "description": "Sub-header 10 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_11",
+              "serialNumber": "2.20.0",
+              "description": "Sub-header 11 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_12",
+              "serialNumber": "2.21.0",
+              "description": "Sub-header 12 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_13",
+              "serialNumber": "2.22.0",
+              "description": "Sub-header 13 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_14",
+              "serialNumber": "2.23.0",
+              "description": "Sub-header 14 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc02_item_15",
+              "serialNumber": "2.24.0",
+              "description": "Sub-header 15 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_03",
+          "name": "Operational Control OC-03",
+          "items": [
+            {
+              "id": "oc03_item_1",
+              "serialNumber": "2.25.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc03_item_2",
+              "serialNumber": "2.26.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc03_item_3",
+              "serialNumber": "2.27.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc03_item_4",
+              "serialNumber": "2.28.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc03_item_5",
+              "serialNumber": "2.29.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc03_item_6",
+              "serialNumber": "2.30.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc03_item_7",
+              "serialNumber": "2.31.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc03_item_8",
+              "serialNumber": "2.32.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_04",
+          "name": "Operational Control OC-04",
+          "items": [
+            {
+              "id": "oc04_item_1",
+              "serialNumber": "2.33.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc04_item_2",
+              "serialNumber": "2.34.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc04_item_3",
+              "serialNumber": "2.35.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc04_item_4",
+              "serialNumber": "2.36.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc04_item_group_5",
+              "serialNumber": "2.37.0",
+              "description": "Sub-header 5 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc04_item_5_1",
+                  "serialNumber": "2.37.1",
+                  "description": "Sub-header 5 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc04_item_5_2",
+                  "serialNumber": "2.37.2",
+                  "description": "Sub-header 5 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_05",
+          "name": "Operational Control OC-05",
+          "items": [
+            {
+              "id": "oc05_item_1",
+              "serialNumber": "2.38.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_2",
+              "serialNumber": "2.39.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_3",
+              "serialNumber": "2.40.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_4",
+              "serialNumber": "2.41.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_5",
+              "serialNumber": "2.42.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_6",
+              "serialNumber": "2.43.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_group_7",
+              "serialNumber": "2.44.0",
+              "description": "Sub-header 7 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc05_item_7_1",
+                  "serialNumber": "2.44.1",
+                  "description": "Sub-header 7 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc05_item_7_2",
+                  "serialNumber": "2.44.2",
+                  "description": "Sub-header 7 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc05_item_7_3",
+                  "serialNumber": "2.44.3",
+                  "description": "Sub-header 7 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc05_item_7_4",
+                  "serialNumber": "2.44.4",
+                  "description": "Sub-header 7 sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc05_item_7_5",
+                  "serialNumber": "2.44.5",
+                  "description": "Sub-header 7 sub-item 5",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc05_item_7_6",
+                  "serialNumber": "2.44.6",
+                  "description": "Sub-header 7 sub-item 6",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc05_item_8",
+              "serialNumber": "2.45.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_9",
+              "serialNumber": "2.46.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_10",
+              "serialNumber": "2.47.0",
+              "description": "Sub-header 10 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_11",
+              "serialNumber": "2.48.0",
+              "description": "Sub-header 11 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_12",
+              "serialNumber": "2.49.0",
+              "description": "Sub-header 12 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc05_item_13",
+              "serialNumber": "2.50.0",
+              "description": "Sub-header 13 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_06",
+          "name": "Operational Control OC-06",
+          "items": [
+            {
+              "id": "oc06_item_1",
+              "serialNumber": "2.51.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc06_item_2",
+              "serialNumber": "2.52.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc06_item_3",
+              "serialNumber": "2.53.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc06_item_4",
+              "serialNumber": "2.54.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc06_item_5",
+              "serialNumber": "2.55.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc06_item_6",
+              "serialNumber": "2.56.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_07",
+          "name": "Operational Control OC-07",
+          "items": [
+            {
+              "id": "oc07_item_1",
+              "serialNumber": "2.57.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_2",
+              "serialNumber": "2.58.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_3",
+              "serialNumber": "2.59.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_4",
+              "serialNumber": "2.60.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_5",
+              "serialNumber": "2.61.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_6",
+              "serialNumber": "2.62.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_7",
+              "serialNumber": "2.63.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_8",
+              "serialNumber": "2.64.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_9",
+              "serialNumber": "2.65.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_10",
+              "serialNumber": "2.66.0",
+              "description": "Sub-header 10 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_11",
+              "serialNumber": "2.67.0",
+              "description": "Sub-header 11 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_12",
+              "serialNumber": "2.68.0",
+              "description": "Sub-header 12 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_13",
+              "serialNumber": "2.69.0",
+              "description": "Sub-header 13 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_14",
+              "serialNumber": "2.70.0",
+              "description": "Sub-header 14 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_15",
+              "serialNumber": "2.71.0",
+              "description": "Sub-header 15 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_16",
+              "serialNumber": "2.72.0",
+              "description": "Sub-header 16 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_17",
+              "serialNumber": "2.73.0",
+              "description": "Sub-header 17 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc07_item_group_18",
+              "serialNumber": "2.74.0",
+              "description": "Sub-header 18 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc07_item_18_1",
+                  "serialNumber": "2.74.1",
+                  "description": "Sub-header 18 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc07_item_18_2",
+                  "serialNumber": "2.74.2",
+                  "description": "Sub-header 18 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc07_item_18_3",
+                  "serialNumber": "2.74.3",
+                  "description": "Sub-header 18 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc07_item_19",
+              "serialNumber": "2.75.0",
+              "description": "Sub-header 19 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_08",
+          "name": "Operational Control OC-08",
+          "items": [
+            {
+              "id": "oc08_item_group_1",
+              "serialNumber": "2.76.0",
+              "description": "Sub-header 1 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc08_item_1_1",
+                  "serialNumber": "2.76.1",
+                  "description": "Sub-header 1 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc08_item_1_2",
+                  "serialNumber": "2.76.2",
+                  "description": "Sub-header 1 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc08_item_group_2",
+              "serialNumber": "2.77.0",
+              "description": "Sub-header 2 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc08_item_2_1",
+                  "serialNumber": "2.77.1",
+                  "description": "Sub-header 2 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc08_item_2_2",
+                  "serialNumber": "2.77.2",
+                  "description": "Sub-header 2 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc08_item_3",
+              "serialNumber": "2.78.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc08_item_4",
+              "serialNumber": "2.79.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_09",
+          "name": "Operational Control OC-09",
+          "items": [
+            {
+              "id": "oc09_item_1",
+              "serialNumber": "2.80.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc09_item_2",
+              "serialNumber": "2.81.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc09_item_group_3",
+              "serialNumber": "2.82.0",
+              "description": "Sub-header 3 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc09_item_3_1",
+                  "serialNumber": "2.82.1",
+                  "description": "Sub-header 3 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc09_item_3_2",
+                  "serialNumber": "2.82.2",
+                  "description": "Sub-header 3 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc09_item_3_3",
+                  "serialNumber": "2.82.3",
+                  "description": "Sub-header 3 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc09_item_3_4",
+                  "serialNumber": "2.82.4",
+                  "description": "Sub-header 3 sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc09_item_3_5",
+                  "serialNumber": "2.82.5",
+                  "description": "Sub-header 3 sub-item 5",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc09_item_3_6",
+                  "serialNumber": "2.82.6",
+                  "description": "Sub-header 3 sub-item 6",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc09_item_3_7",
+                  "serialNumber": "2.82.7",
+                  "description": "Sub-header 3 sub-item 7",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc09_item_4",
+              "serialNumber": "2.83.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc09_item_5",
+              "serialNumber": "2.84.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc09_item_6",
+              "serialNumber": "2.85.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc09_item_7",
+              "serialNumber": "2.86.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc09_item_8",
+              "serialNumber": "2.87.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_10",
+          "name": "Operational Control OC-10",
+          "items": [
+            {
+              "id": "oc10_item_1",
+              "serialNumber": "2.88.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc10_item_2",
+              "serialNumber": "2.89.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc10_item_3",
+              "serialNumber": "2.90.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc10_item_4",
+              "serialNumber": "2.91.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc10_item_5",
+              "serialNumber": "2.92.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc10_item_6",
+              "serialNumber": "2.93.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc10_item_7",
+              "serialNumber": "2.94.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc10_item_8",
+              "serialNumber": "2.95.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc10_item_9",
+              "serialNumber": "2.96.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_11",
+          "name": "Operational Control OC-11",
+          "items": [
+            {
+              "id": "oc11_item_1",
+              "serialNumber": "2.97.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc11_item_2",
+              "serialNumber": "2.98.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc11_item_3",
+              "serialNumber": "2.99.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc11_item_4",
+              "serialNumber": "2.100.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_12",
+          "name": "Operational Control OC-12",
+          "items": [
+            {
+              "id": "oc12_item_1",
+              "serialNumber": "2.101.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc12_item_2",
+              "serialNumber": "2.102.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc12_item_3",
+              "serialNumber": "2.103.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc12_item_4",
+              "serialNumber": "2.104.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc12_item_5",
+              "serialNumber": "2.105.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_oc_13",
+          "name": "Operational Control OC-13",
+          "items": [
+            {
+              "id": "oc13_item_1",
+              "serialNumber": "2.106.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc13_item_2",
+              "serialNumber": "2.107.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc13_item_group_3",
+              "serialNumber": "2.108.0",
+              "description": "Sub-header 3 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "oc13_item_3_1",
+                  "serialNumber": "2.108.1",
+                  "description": "Sub-header 3 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc13_item_3_2",
+                  "serialNumber": "2.108.2",
+                  "description": "Sub-header 3 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc13_item_3_3",
+                  "serialNumber": "2.108.3",
+                  "description": "Sub-header 3 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc13_item_3_4",
+                  "serialNumber": "2.108.4",
+                  "description": "Sub-header 3 sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc13_item_3_5",
+                  "serialNumber": "2.108.5",
+                  "description": "Sub-header 3 sub-item 5",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc13_item_3_6",
+                  "serialNumber": "2.108.6",
+                  "description": "Sub-header 3 sub-item 6",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc13_item_3_7",
+                  "serialNumber": "2.108.7",
+                  "description": "Sub-header 3 sub-item 7",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc13_item_3_8",
+                  "serialNumber": "2.108.8",
+                  "description": "Sub-header 3 sub-item 8",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "oc13_item_3_9",
+                  "serialNumber": "2.108.9",
+                  "description": "Sub-header 3 sub-item 9",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            },
+            {
+              "id": "oc13_item_4",
+              "serialNumber": "2.109.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "oc13_item_5",
+              "serialNumber": "2.110.0",
+              "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
               "conformity": null,
@@ -167,23 +1976,223 @@
       ]
     },
     {
-      "id": "cat_man_control",
-      "name": "MANAGEMENT",
+      "id": "cat_human_res_control",
+      "name": "HUMAN RES",
       "sections": [
         {
-          "id": "sec_man_01",
-          "name": "Management Control MC-01",
+          "id": "sec_hr_01",
+          "name": "Human Resources HR-01",
           "items": [
             {
-              "id": "man_item_group_1",
-              "serialNumber": "3.0",
-              "description": "Management Review Process (Main Header)",
+              "id": "hr01_item_1",
+              "serialNumber": "3.1.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr01_item_2",
+              "serialNumber": "3.2.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_hr_02",
+          "name": "Human Resources HR-02",
+          "items": [
+            {
+              "id": "hr02_item_1",
+              "serialNumber": "3.3.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr02_item_2",
+              "serialNumber": "3.4.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr02_item_3",
+              "serialNumber": "3.5.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr02_item_4",
+              "serialNumber": "3.6.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_hr_03",
+          "name": "Human Resources HR-03",
+          "items": [
+            {
+              "id": "hr03_item_1",
+              "serialNumber": "3.7.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr03_item_2",
+              "serialNumber": "3.8.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr03_item_3",
+              "serialNumber": "3.9.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr03_item_4",
+              "serialNumber": "3.10.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr03_item_5",
+              "serialNumber": "3.11.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr03_item_6",
+              "serialNumber": "3.12.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_hr_04",
+          "name": "Human Resources HR-04",
+          "items": [
+            {
+              "id": "hr04_item_1",
+              "serialNumber": "3.13.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr04_item_2",
+              "serialNumber": "3.14.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr04_item_3",
+              "serialNumber": "3.15.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_hr_05",
+          "name": "Human Resources HR-05",
+          "items": [
+            {
+              "id": "hr05_item_1",
+              "serialNumber": "3.16.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_hr_06",
+          "name": "Human Resources HR-06",
+          "items": [
+            {
+              "id": "hr06_item_1",
+              "serialNumber": "3.17.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr06_item_group_2",
+              "serialNumber": "3.18.0",
+              "description": "Sub-header 2 with sub-items",
               "type": "header",
               "subItems": [
                 {
-                  "id": "man_item_1_1",
-                  "serialNumber": "3.1",
-                  "description": "Is there a documented management review process?",
+                  "id": "hr06_item_2_1",
+                  "serialNumber": "3.18.1",
+                  "description": "Sub-header 2 sub-item 1",
                   "type": "item",
                   "riskLevel": "M",
                   "conformity": null,
@@ -191,9 +2200,9 @@
                   "photoUri": null
                 },
                 {
-                  "id": "man_item_1_2",
-                  "serialNumber": "3.2",
-                  "description": "Are management reviews conducted at planned intervals?",
+                  "id": "hr06_item_2_2",
+                  "serialNumber": "3.18.2",
+                  "description": "Sub-header 2 sub-item 2",
                   "type": "item",
                   "riskLevel": "M",
                   "conformity": null,
@@ -201,9 +2210,19 @@
                   "photoUri": null
                 },
                 {
-                  "id": "man_item_1_3",
-                  "serialNumber": "3.3",
-                  "description": "Is there evidence of continual improvement based on management reviews?",
+                  "id": "hr06_item_2_3",
+                  "serialNumber": "3.18.3",
+                  "description": "Sub-header 2 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "hr06_item_2_4",
+                  "serialNumber": "3.18.4",
+                  "description": "Sub-header 2 sub-item 4",
                   "type": "item",
                   "riskLevel": "M",
                   "conformity": null,
@@ -211,6 +2230,992 @@
                   "photoUri": null
                 }
               ]
+            },
+            {
+              "id": "hr06_item_3",
+              "serialNumber": "3.19.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_hr_07",
+          "name": "Human Resources HR-07",
+          "items": [
+            {
+              "id": "hr07_item_1",
+              "serialNumber": "3.20.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr07_item_2",
+              "serialNumber": "3.21.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_hr_08",
+          "name": "Human Resources HR-08",
+          "items": [
+            {
+              "id": "hr08_item_1",
+              "serialNumber": "3.22.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "hr08_item_2",
+              "serialNumber": "3.23.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_hr_09",
+          "name": "Human Resources HR-09",
+          "items": [
+            {
+              "id": "hr09_item_1",
+              "serialNumber": "3.24.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat_finance_control",
+      "name": "FINANCE",
+      "sections": [
+        {
+          "id": "sec_fc_01",
+          "name": "Financial Control FC-01",
+          "items": [
+            {
+              "id": "fc01_item_1",
+              "serialNumber": "4.1.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc01_item_2",
+              "serialNumber": "4.2.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc01_item_3",
+              "serialNumber": "4.3.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc01_item_4",
+              "serialNumber": "4.4.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc01_item_5",
+              "serialNumber": "4.5.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc01_item_6",
+              "serialNumber": "4.6.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc01_item_7",
+              "serialNumber": "4.7.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_fc_02",
+          "name": "Financial Control FC-02",
+          "items": [
+            {
+              "id": "fc02_item_1",
+              "serialNumber": "4.8.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_2",
+              "serialNumber": "4.9.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_3",
+              "serialNumber": "4.10.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_4",
+              "serialNumber": "4.11.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_5",
+              "serialNumber": "4.12.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_6",
+              "serialNumber": "4.13.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_7",
+              "serialNumber": "4.14.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_8",
+              "serialNumber": "4.15.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_9",
+              "serialNumber": "4.16.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc02_item_10",
+              "serialNumber": "4.17.0",
+              "description": "Sub-header 10 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_fc_03",
+          "name": "Financial Control FC-03",
+          "items": [
+            {
+              "id": "fc03_item_1",
+              "serialNumber": "4.18.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_2",
+              "serialNumber": "4.19.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_3",
+              "serialNumber": "4.20.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_4",
+              "serialNumber": "4.21.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_5",
+              "serialNumber": "4.22.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_6",
+              "serialNumber": "4.23.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_7",
+              "serialNumber": "4.24.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_8",
+              "serialNumber": "4.25.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_9",
+              "serialNumber": "4.26.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_10",
+              "serialNumber": "4.27.0",
+              "description": "Sub-header 10 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_11",
+              "serialNumber": "4.28.0",
+              "description": "Sub-header 11 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_12",
+              "serialNumber": "4.29.0",
+              "description": "Sub-header 12 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_13",
+              "serialNumber": "4.30.0",
+              "description": "Sub-header 13 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc03_item_14",
+              "serialNumber": "4.31.0",
+              "description": "Sub-header 14 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_fc_04",
+          "name": "Financial Control FC-04",
+          "items": [
+            {
+              "id": "fc04_item_1",
+              "serialNumber": "4.32.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_2",
+              "serialNumber": "4.33.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_3",
+              "serialNumber": "4.34.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_4",
+              "serialNumber": "4.35.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_5",
+              "serialNumber": "4.36.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_6",
+              "serialNumber": "4.37.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_7",
+              "serialNumber": "4.38.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_8",
+              "serialNumber": "4.39.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_9",
+              "serialNumber": "4.40.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_10",
+              "serialNumber": "4.41.0",
+              "description": "Sub-header 10 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc04_item_11",
+              "serialNumber": "4.42.0",
+              "description": "Sub-header 11 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_fc_05",
+          "name": "Financial Control FC-05",
+          "items": [
+            {
+              "id": "fc05_item_1",
+              "serialNumber": "4.43.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc05_item_2",
+              "serialNumber": "4.44.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc05_item_3",
+              "serialNumber": "4.45.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc05_item_4",
+              "serialNumber": "4.46.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc05_item_5",
+              "serialNumber": "4.47.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc05_item_6",
+              "serialNumber": "4.48.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc05_item_7",
+              "serialNumber": "4.49.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc05_item_8",
+              "serialNumber": "4.50.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc05_item_9",
+              "serialNumber": "4.51.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_fc_06",
+          "name": "Financial Control FC-06",
+          "items": [
+            {
+              "id": "fc06_item_1",
+              "serialNumber": "4.52.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_2",
+              "serialNumber": "4.53.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_3",
+              "serialNumber": "4.54.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_4",
+              "serialNumber": "4.55.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_5",
+              "serialNumber": "4.56.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_6",
+              "serialNumber": "4.57.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_7",
+              "serialNumber": "4.58.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_8",
+              "serialNumber": "4.59.0",
+              "description": "Sub-header 8 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_9",
+              "serialNumber": "4.60.0",
+              "description": "Sub-header 9 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_10",
+              "serialNumber": "4.61.0",
+              "description": "Sub-header 10 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc06_item_11",
+              "serialNumber": "4.62.0",
+              "description": "Sub-header 11 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_fc_07",
+          "name": "Financial Control FC-07",
+          "items": [
+            {
+              "id": "fc07_item_1",
+              "serialNumber": "4.63.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc07_item_2",
+              "serialNumber": "4.64.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc07_item_3",
+              "serialNumber": "4.65.0",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc07_item_4",
+              "serialNumber": "4.66.0",
+              "description": "Sub-header 4 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc07_item_5",
+              "serialNumber": "4.67.0",
+              "description": "Sub-header 5 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc07_item_6",
+              "serialNumber": "4.68.0",
+              "description": "Sub-header 6 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "fc07_item_7",
+              "serialNumber": "4.69.0",
+              "description": "Sub-header 7 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat_management_control",
+      "name": "MANAGEMENT",
+      "sections": [
+        {
+          "id": "sec_mc_01",
+          "name": "Management Control MC-01",
+          "items": [
+            {
+              "id": "mc01_item_1",
+              "serialNumber": "5.1.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "mc01_item_2",
+              "serialNumber": "5.2.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_mc_02",
+          "name": "Management Control MC-02",
+          "items": [
+            {
+              "id": "mc02_item_group_1",
+              "serialNumber": "5.3.0",
+              "description": "Sub-header 1 with sub-items",
+              "type": "header",
+              "subItems": [
+                {
+                  "id": "mc02_item_1_1",
+                  "serialNumber": "5.3.1",
+                  "description": "Sub-header 1 sub-item 1",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "mc02_item_1_2",
+                  "serialNumber": "5.3.2",
+                  "description": "Sub-header 1 sub-item 2",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "mc02_item_1_3",
+                  "serialNumber": "5.3.3",
+                  "description": "Sub-header 1 sub-item 3",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "mc02_item_1_4",
+                  "serialNumber": "5.3.4",
+                  "description": "Sub-header 1 sub-item 4",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                },
+                {
+                  "id": "mc02_item_1_5",
+                  "serialNumber": "5.3.5",
+                  "description": "Sub-header 1 sub-item 5",
+                  "type": "item",
+                  "riskLevel": "M",
+                  "conformity": null,
+                  "auditorRemarks": "",
+                  "photoUri": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sec_mc_03",
+          "name": "Management Control MC-03",
+          "items": [
+            {
+              "id": "mc03_item_1",
+              "serialNumber": "5.4.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_mc_04",
+          "name": "Management Control MC-04",
+          "items": [
+            {
+              "id": "mc04_item_1",
+              "serialNumber": "5.5.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_mc_05",
+          "name": "Management Control MC-05",
+          "items": [
+            {
+              "id": "mc05_item_1",
+              "serialNumber": "5.6.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "mc05_item_2",
+              "serialNumber": "5.7.0",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_mc_06",
+          "name": "Management Control MC-06",
+          "items": [
+            {
+              "id": "mc06_item_1",
+              "serialNumber": "5.8.0",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
             }
           ]
         }
@@ -221,473 +3226,13 @@
       "name": "ADMINISTRATION",
       "sections": [
         {
-          "id": "sec_admin_01",
+          "id": "sec_ac_01",
           "name": "Administration Control AC-01",
           "items": [
             {
-              "id": "admin_item_1",
-              "serialNumber": "4.1",
-              "description": "Is there an up-to-date organizational chart?",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "admin_item_2",
-              "serialNumber": "4.2",
-              "description": "Are job descriptions available and up-to-date?",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "admin_item_3",
-              "serialNumber": "4.3",
-              "description": "Is there a process for managing organizational changes?",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "cat_system_control",
-      "name": "SYSTEM",
-      "sections": [
-        {
-          "id": "sec_sys_01",
-          "name": "System Checks SC-01",
-          "items": [
-            {
-              "id": "sys_item_1",
-              "serialNumber": "5.1",
-              "description": "Is system documentation complete and accessible?",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_2",
-              "serialNumber": "5.2",
-              "description": "Are system backups performed regularly and tested?",
-              "type": "item",
-              "riskLevel": "H",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_group_3",
-              "serialNumber": "5.3.0",
-              "description": "User Access Control (Main Header)",
-              "type": "header",
-              "subItems": [
-                {
-                  "id": "sys_item_3_1",
-                  "serialNumber": "5.3.1",
-                  "description": "Is there a formal process for granting user access?",
-                  "type": "item",
-                  "riskLevel": "H",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "sys_item_3_2",
-                  "serialNumber": "5.3.2",
-                  "description": "Are user access rights reviewed periodically?",
-                  "type": "item",
-                  "riskLevel": "M",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "sys_item_3_3",
-                  "serialNumber": "5.3.3",
-                  "description": "Is access revoked promptly upon employee termination?",
-                  "type": "item",
-                  "riskLevel": "H",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "sys_item_3_4",
-                  "serialNumber": "5.3.4",
-                  "description": "Are strong password policies enforced?",
-                  "type": "item",
-                  "riskLevel": "M",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "sys_item_3_5",
-                  "serialNumber": "5.3.5",
-                  "description": "Is multi-factor authentication used for critical systems?",
-                  "type": "item",
-                  "riskLevel": "H",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                }
-              ]
-            },
-            {
-              "id": "sys_item_4",
-              "serialNumber": "5.4",
-              "description": "Are software licenses compliant and managed?",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_01",
-              "serialNumber": "5.5",
-              "description": "Dummy system check item alpha for extended page testing.",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_02",
-              "serialNumber": "5.6",
-              "description": "Placeholder text for system audit point beta, ensuring sufficient content.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_03",
-              "serialNumber": "5.7",
-              "description": "Another entry, gamma series, to populate the system checklist further.",
-              "type": "item",
-              "riskLevel": "H",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_04",
-              "serialNumber": "5.8",
-              "description": "System verification point delta, for comprehensive audit simulation.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_05",
-              "serialNumber": "5.9",
-              "description": "Epsilon check for system integrity and data flow validation.",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_06",
-              "serialNumber": "5.10",
-              "description": "Zeta procedure review item for system operations continuity.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_07",
-              "serialNumber": "5.11",
-              "description": "Eta assessment point for system security patch management.",
-              "type": "item",
-              "riskLevel": "H",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_08",
-              "serialNumber": "5.12",
-              "description": "Theta compliance check for data retention policies within the system.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_09",
-              "serialNumber": "5.13",
-              "description": "Iota system performance monitoring check and alert mechanisms.",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_10",
-              "serialNumber": "5.14",
-              "description": "Kappa review of system change management procedures and approvals.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_11",
-              "serialNumber": "5.15",
-              "description": "Lambda check for disaster recovery plan effectiveness and testing.",
-              "type": "item",
-              "riskLevel": "H",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_12",
-              "serialNumber": "5.16",
-              "description": "Mu verification of incident response procedures for system events.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_13",
-              "serialNumber": "5.17",
-              "description": "Nu assessment of third-party system integrations and security.",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_14",
-              "serialNumber": "5.18",
-              "description": "Xi check for system logging and audit trail capabilities.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_15",
-              "serialNumber": "5.19",
-              "description": "Omicron review of data encryption standards at rest and in transit.",
-              "type": "item",
-              "riskLevel": "H",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_16",
-              "serialNumber": "5.20",
-              "description": "Pi validation of user training programs for system usage.",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_17",
-              "serialNumber": "5.21",
-              "description": "Rho check for physical security measures for system hardware.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_18",
-              "serialNumber": "5.22",
-              "description": "Sigma assessment of system capacity planning and scalability.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_19",
-              "serialNumber": "5.23",
-              "description": "Tau review of vendor management for system components.",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_20",
-              "serialNumber": "5.24",
-              "description": "Upsilon check for software development lifecycle security practices.",
-              "type": "item",
-              "riskLevel": "H",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_21",
-              "serialNumber": "5.25",
-              "description": "Phi verification of data privacy compliance (e.g., GDPR, CCPA).",
-              "type": "item",
-              "riskLevel": "H",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_22",
-              "serialNumber": "5.26",
-              "description": "Chi assessment of system documentation accuracy and completeness.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_23",
-              "serialNumber": "5.27",
-              "description": "Psi review of system decommissioning procedures and data disposal.",
-              "type": "item",
-              "riskLevel": "M",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_24",
-              "serialNumber": "5.28",
-              "description": "Omega final check for overall system health and operational readiness.",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "sys_item_dummy_25",
-              "serialNumber": "5.29",
-              "description": "Extended system check item for ensuring page break in main table.",
-              "type": "item",
-              "riskLevel": "L",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "cat_safety_control",
-      "name": "SAFETY",
-      "sections": [
-        {
-          "id": "sec_safe_01",
-          "name": "Safety Protocols SP-01",
-          "items": [
-            {
-              "id": "safe_item_1",
+              "id": "ac01_item_1",
               "serialNumber": "6.1",
-              "description": "Are emergency exits clearly marked and unobstructed?",
-              "type": "item",
-              "riskLevel": "H",
-              "conformity": null,
-              "auditorRemarks": "",
-              "photoUri": null
-            },
-            {
-              "id": "safe_item_group_2",
-              "serialNumber": "6.2.0",
-              "description": "Fire Safety Measures (Main Header)",
-              "type": "header",
-              "subItems": [
-                {
-                  "id": "safe_item_2_1",
-                  "serialNumber": "6.2.1",
-                  "description": "Are fire extinguishers inspected regularly and accessible?",
-                  "type": "item",
-                  "riskLevel": "H",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "safe_item_2_2",
-                  "serialNumber": "6.2.2",
-                  "description": "Are smoke detectors functional and tested?",
-                  "type": "item",
-                  "riskLevel": "H",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "safe_item_2_3",
-                  "serialNumber": "6.2.3",
-                  "description": "Is there an evacuation plan in place and communicated?",
-                  "type": "item",
-                  "riskLevel": "M",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "safe_item_2_4",
-                  "serialNumber": "6.2.4",
-                  "description": "Are fire drills conducted periodically?",
-                  "type": "item",
-                  "riskLevel": "M",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                },
-                {
-                  "id": "safe_item_2_5",
-                  "serialNumber": "6.2.5",
-                  "description": "Is flammable material stored safely?",
-                  "type": "item",
-                  "riskLevel": "H",
-                  "conformity": null,
-                  "auditorRemarks": "",
-                  "photoUri": null
-                }
-              ]
-            },
-            {
-              "id": "safe_item_3",
-              "serialNumber": "6.3",
-              "description": "Is first aid equipment available and stocked?",
+              "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
               "conformity": null,
@@ -695,12 +3240,246 @@
               "photoUri": null
             },
             {
-              "id": "safe_item_4",
-              "serialNumber": "6.4",
-              "description": "Are safety incident reporting procedures in place?",
+              "id": "ac01_item_2",
+              "serialNumber": "6.2",
+              "description": "Sub-header 2 placeholder",
               "type": "item",
-              "riskLevel": "L",
+              "riskLevel": "M",
               "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac01_item_3",
+              "serialNumber": "6.3",
+              "description": "Sub-header 3 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_02",
+          "name": "Administration Control AC-02",
+          "items": [
+            {
+              "id": "ac02_item_1",
+              "serialNumber": "6.4",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_03",
+          "name": "Administration Control AC-03",
+          "items": [
+            {
+              "id": "ac03_item_1",
+              "serialNumber": "6.5",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac03_item_2",
+              "serialNumber": "6.6",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_04",
+          "name": "Administration Control AC-04",
+          "items": [
+            {
+              "id": "ac04_item_1",
+              "serialNumber": "6.7",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac04_item_2",
+              "serialNumber": "6.8",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": null,
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_05",
+          "name": "Administration Control AC-05",
+          "items": [
+            {
+              "id": "ac05_item_1",
+              "serialNumber": "6.9",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac05_item_2",
+              "serialNumber": "6.10",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_06",
+          "name": "Administration Control AC-06",
+          "items": [
+            {
+              "id": "ac06_item_1",
+              "serialNumber": "6.11",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac06_item_2",
+              "serialNumber": "6.12",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_07",
+          "name": "Administration Control AC-07",
+          "items": [
+            {
+              "id": "ac07_item_1",
+              "serialNumber": "6.13",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac07_item_2",
+              "serialNumber": "6.14",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_08",
+          "name": "Administration Control AC-08",
+          "items": [
+            {
+              "id": "ac08_item_1",
+              "serialNumber": "6.15",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac08_item_2",
+              "serialNumber": "6.16",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_09",
+          "name": "Administration Control AC-09",
+          "items": [
+            {
+              "id": "ac09_item_1",
+              "serialNumber": "6.17",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac09_item_2",
+              "serialNumber": "6.18",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            }
+          ]
+        },
+        {
+          "id": "sec_ac_10",
+          "name": "Administration Control AC-10",
+          "items": [
+            {
+              "id": "ac10_item_1",
+              "serialNumber": "6.19",
+              "description": "Sub-header 1 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
+              "auditorRemarks": "",
+              "photoUri": null
+            },
+            {
+              "id": "ac10_item_2",
+              "serialNumber": "6.20",
+              "description": "Sub-header 2 placeholder",
+              "type": "item",
+              "riskLevel": "M",
+              "conformity": "NA",
               "auditorRemarks": "",
               "photoUri": null
             }
