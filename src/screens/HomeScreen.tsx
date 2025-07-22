@@ -18,12 +18,12 @@ interface AppListItem {
 const APP_LIST_DATA: AppListItem[] = [
   { id: "1", title: "Audit with Property Checklist", screenName: "AuditCategories" },
   // Assuming these other screens are defined in your AppStackParamList and don't require params from HomeScreen
-  { id: "2", title: "Building Inspections - Daily", screenName: "BuildingInspectionsDaily" as any }, // Cast to any if not in AppStackParamList yet
-  { id: "3", title: "Building Inspections - Weekly", screenName: "BuildingInspectionsWeekly" as any },// Cast to any if not in AppStackParamList yet
-  { id: "4", title: "Building Inspections - Monthly", screenName: "BuildingInspectionsMonthly" as any },// Cast to any if not in AppStackParamList yet
+  // { id: "2", title: "Building Inspections - Daily", screenName: "BuildingInspectionsDaily" as any }, // Cast to any if not in AppStackParamList yet
+  // { id: "3", title: "Building Inspections - Weekly", screenName: "BuildingInspectionsWeekly" as any },// Cast to any if not in AppStackParamList yet
+  // { id: "4", title: "Building Inspections - Monthly", screenName: "BuildingInspectionsMonthly" as any },// Cast to any if not in AppStackParamList yet
   { id: "5", title: "Health & Safety – Daily TBM", screenName: "HealthSafetyDailyTBM" as any },// Cast to any if not in AppStackParamList yet
-  { id: "6", title: "Safety Site Inspection – FSM+Safety", screenName: "SafetySiteInspection" as any },// Cast to any if not in AppStackParamList yet
-  { id: "7", title: "FSM Periodic Inspection", screenName: "FSMPeriodicInspection" as any },// Cast to any if not in AppStackParamList yet
+  // { id: "6", title: "Safety Site Inspection – FSM+Safety", screenName: "SafetySiteInspection" as any },// Cast to any if not in AppStackParamList yet
+  // { id: "7", title: "FSM Periodic Inspection", screenName: "FSMPeriodicInspection" as any },// Cast to any if not in AppStackParamList yet
 ];
 
 interface ItemProps {

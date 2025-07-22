@@ -13,14 +13,22 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.davidonq.internalaudit",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.davidonq.internalaudit"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
@@ -33,6 +41,11 @@
           "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera to take photos for evidence."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "d31e9407-ee29-411f-975f-45a5da3eb092"
+      }
+    }
   }
 }

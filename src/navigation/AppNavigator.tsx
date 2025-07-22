@@ -7,6 +7,7 @@ import AuditChecklistMainScreen from "../features/auditPropertyChecklist/screens
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { View, Text, TouchableOpacity } from "react-native";
 import FSMPeriodicInspectionScreen from "../features/fsminspection/FSMPeriodicInspectionScreen"; // <<< ADD THIS IMPORT
+import TBMScreen from "../features/dailyToolboxMeeting/screens/TBMScreen";
 
 // Define a type for our App Stack parameters
 export type AppStackParamList = {
@@ -97,7 +98,7 @@ const AppNavigator = () => {
       />
       <AppStack.Screen
         name="HealthSafetyDailyTBM"
-        component={PlaceholderScreen}
+        component={TBMScreen}
         options={{ title: "Health & Safety TBM" }}
       />
       <AppStack.Screen

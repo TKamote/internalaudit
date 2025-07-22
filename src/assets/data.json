@@ -1595,7 +1595,7 @@
               "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2191,7 +2191,7 @@
               "subItems": [
                 {
                   "id": "hr06_item_2_1",
-                  "serialNumber": "3.18.1",
+                                                                     "serialNumber": "3.18.1",
                   "description": "Sub-header 2 sub-item 1",
                   "type": "item",
                   "riskLevel": "M",
@@ -2327,7 +2327,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2337,7 +2337,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2347,7 +2347,7 @@
               "description": "Sub-header 3 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2357,7 +2357,7 @@
               "description": "Sub-header 4 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2367,7 +2367,7 @@
               "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2377,7 +2377,7 @@
               "description": "Sub-header 6 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2387,7 +2387,7 @@
               "description": "Sub-header 7 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -2403,7 +2403,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2413,7 +2413,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2423,7 +2423,7 @@
               "description": "Sub-header 3 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2433,7 +2433,7 @@
               "description": "Sub-header 4 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2443,7 +2443,7 @@
               "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2453,7 +2453,7 @@
               "description": "Sub-header 6 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2463,7 +2463,7 @@
               "description": "Sub-header 7 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2473,7 +2473,7 @@
               "description": "Sub-header 8 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2483,7 +2483,7 @@
               "description": "Sub-header 9 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2493,7 +2493,7 @@
               "description": "Sub-header 10 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -2509,7 +2509,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2519,7 +2519,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2529,7 +2529,7 @@
               "description": "Sub-header 3 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2539,7 +2539,7 @@
               "description": "Sub-header 4 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2549,7 +2549,7 @@
               "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2559,7 +2559,7 @@
               "description": "Sub-header 6 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2569,7 +2569,7 @@
               "description": "Sub-header 7 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2579,7 +2579,7 @@
               "description": "Sub-header 8 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2589,7 +2589,7 @@
               "description": "Sub-header 9 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2599,7 +2599,7 @@
               "description": "Sub-header 10 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2609,7 +2609,7 @@
               "description": "Sub-header 11 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2619,7 +2619,7 @@
               "description": "Sub-header 12 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2629,7 +2629,7 @@
               "description": "Sub-header 13 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2639,7 +2639,7 @@
               "description": "Sub-header 14 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -2655,7 +2655,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2665,7 +2665,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2675,7 +2675,7 @@
               "description": "Sub-header 3 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2685,7 +2685,7 @@
               "description": "Sub-header 4 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2695,7 +2695,7 @@
               "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2705,7 +2705,7 @@
               "description": "Sub-header 6 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2715,7 +2715,7 @@
               "description": "Sub-header 7 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2725,7 +2725,7 @@
               "description": "Sub-header 8 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2735,7 +2735,7 @@
               "description": "Sub-header 9 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2745,7 +2745,7 @@
               "description": "Sub-header 10 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2755,7 +2755,7 @@
               "description": "Sub-header 11 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -2771,7 +2771,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": null,
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2781,7 +2781,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2791,7 +2791,7 @@
               "description": "Sub-header 3 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2801,7 +2801,7 @@
               "description": "Sub-header 4 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2811,7 +2811,7 @@
               "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2821,7 +2821,7 @@
               "description": "Sub-header 6 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2831,7 +2831,7 @@
               "description": "Sub-header 7 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2841,7 +2841,7 @@
               "description": "Sub-header 8 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2851,7 +2851,7 @@
               "description": "Sub-header 9 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -2867,7 +2867,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2877,7 +2877,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2887,7 +2887,7 @@
               "description": "Sub-header 3 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2897,7 +2897,7 @@
               "description": "Sub-header 4 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2907,7 +2907,7 @@
               "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2917,7 +2917,7 @@
               "description": "Sub-header 6 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2927,7 +2927,7 @@
               "description": "Sub-header 7 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2937,7 +2937,7 @@
               "description": "Sub-header 8 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2947,7 +2947,7 @@
               "description": "Sub-header 9 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2957,7 +2957,7 @@
               "description": "Sub-header 10 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2967,7 +2967,7 @@
               "description": "Sub-header 11 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -2983,7 +2983,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -2993,7 +2993,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3003,7 +3003,7 @@
               "description": "Sub-header 3 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3013,7 +3013,7 @@
               "description": "Sub-header 4 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3023,7 +3023,7 @@
               "description": "Sub-header 5 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3033,7 +3033,7 @@
               "description": "Sub-header 6 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3043,7 +3043,7 @@
               "description": "Sub-header 7 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -3287,7 +3287,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3297,7 +3297,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -3339,7 +3339,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3349,7 +3349,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -3365,7 +3365,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3375,7 +3375,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -3391,7 +3391,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3401,7 +3401,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -3417,7 +3417,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3427,7 +3427,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -3443,7 +3443,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3453,7 +3453,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }
@@ -3469,7 +3469,7 @@
               "description": "Sub-header 1 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             },
@@ -3479,7 +3479,7 @@
               "description": "Sub-header 2 placeholder",
               "type": "item",
               "riskLevel": "M",
-              "conformity": "NA",
+              "conformity": "not-applicable",
               "auditorRemarks": "",
               "photoUri": null
             }

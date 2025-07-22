@@ -1,0 +1,7 @@
+{
+  "rules": [
+    {
+      "description": "For all code completions, code generation, and suggestions in this codebase, always use the following dependencies for their respective purposes and do not suggest or use alternatives:\n\n- expo-image-picker for image picking\n- jspdf and jspdf-autotable for PDF generation\n- expo-file-system for file access\n- expo-sharing for sharing files\n- react-native-paper and react-native-vector-icons for UI components\n- expo-checkbox for checkboxes\n- expo-print for printing\n- @react-native-async-storage/async-storage for async storage\n- @react-navigation/native and @react-navigation/native-stack for navigation\n- docx for Word document generation\n- react-native-fs for file system operations\n- react-native-safe-area-context and react-native-screens for navigation and layout\n- expo-status-bar for status bar management\n- react and react-native as the core frameworks\n\nDo not use or suggest any other libraries for these purposes. All new features and refactors must adhere to these dependency choices."
+    }
+  ]
+} 

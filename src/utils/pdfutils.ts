@@ -416,6 +416,87 @@ export const generatePdfWithJsPDF = async (
                 undefined,
                 "FAST"
               );
+
+              // ADD: Timestamp overlay on bottom-right of photo (if available)
+              if (currentItem.photoTimestamp) {
+                const timestampText = currentItem.photoTimestamp;
+
+                // Set smaller font to prevent overflow
+                doc.setFontSize(6);
+
+                // Keep timestamp as one line (no splitting)
+                const timestampWidth = doc.getTextWidth(timestampText);
+
+                const textHeight = 2.0; // Height for font size 6
+                const timestampPadding = 2;
+
+                // Position with 25px (approximately 9mm) shift to the left
+                const leftShift = 9; // 25px ≈ 9mm
+                const timestampX =
+                  imgDrawX +
+                  scaledImgWidth -
+                  timestampWidth -
+                  timestampPadding -
+                  leftShift;
+                const timestampY =
+                  imgDrawY + scaledImgHeight - timestampPadding;
+
+                // Ensure timestamp doesn't go beyond left edge of image
+                const finalTimestampX = Math.max(
+                  imgDrawX + timestampPadding,
+                  timestampX
+                );
+
+                // Create white outline effect
+                const outlineOffset = 0.1;
+                doc.setTextColor(255, 255, 255); // White outline
+
+                // Draw white outline (8 directions)
+                doc.text(
+                  timestampText,
+                  finalTimestampX - outlineOffset,
+                  timestampY
+                );
+                doc.text(
+                  timestampText,
+                  finalTimestampX + outlineOffset,
+                  timestampY
+                );
+                doc.text(
+                  timestampText,
+                  finalTimestampX,
+                  timestampY - outlineOffset
+                );
+                doc.text(
+                  timestampText,
+                  finalTimestampX,
+                  timestampY + outlineOffset
+                );
+                doc.text(
+                  timestampText,
+                  finalTimestampX - outlineOffset,
+                  timestampY - outlineOffset
+                );
+                doc.text(
+                  timestampText,
+                  finalTimestampX + outlineOffset,
+                  timestampY - outlineOffset
+                );
+                doc.text(
+                  timestampText,
+                  finalTimestampX - outlineOffset,
+                  timestampY + outlineOffset
+                );
+                doc.text(
+                  timestampText,
+                  finalTimestampX + outlineOffset,
+                  timestampY + outlineOffset
+                );
+
+                // Draw the main black text on top
+                doc.setTextColor(0, 0, 0); // Black text
+                doc.text(timestampText, finalTimestampX, timestampY);
+              }
             } catch (e) {
               console.error(
                 `Error adding image for S/N ${currentItem.serialNumber}:`,
@@ -451,8 +532,8 @@ export const generatePdfWithJsPDF = async (
           );
         }
 
-        // MODIFIED: Adjust text area for its specific 10mm vertical padding
-        let textCurrentY = cardRowY + textColumnVerticalPadding; // Start text after text column's 10mm top padding
+        // MODIFIED: Remove timestamp from text area since it's now on the photo
+        let textCurrentY = cardRowY + textColumnVerticalPadding; // Start text after text column's padding
         const textDetailsAreaX =
           cardX + targetCardWidth * 0.6 + cardHorizontalPadding / 2;
         const textDetailsWidth =
@@ -479,7 +560,7 @@ export const generatePdfWithJsPDF = async (
         doc.text(statusLines, textDetailsAreaX, textCurrentY);
         textCurrentY += statusLines.length * cardTextLineHeight;
 
-        // Auditor's Remarks Label
+        // Auditor's Remarks Label (timestamp section removed from here)
         doc.text("Auditor's Remarks:", textDetailsAreaX, textCurrentY, {
           maxWidth: textDetailsWidth,
         });

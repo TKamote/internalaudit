@@ -42,6 +42,7 @@ export interface AuditItemData {
   riskLevel?: RiskLevel;
   auditorRemarks?: string;
   photoUri?: string | null;
+  photoTimestamp?: string; // Add this line
   subItems?: AuditItemData[];
   originalImageWidth?: number;
   originalImageHeight?: number;
@@ -74,12 +75,12 @@ interface AuditListItemProps {
     newRemark: string
   ) => void;
   onPhotoTake: (
-    // MODIFIED: Add width and height parameters
     itemId: string,
     sectionId: string,
     photoUri: string | null,
-    originalWidth?: number, // Add originalWidth
-    originalHeight?: number // Add originalHeight
+    originalWidth?: number,
+    originalHeight?: number,
+    timestamp?: string // Add this line
   ) => void;
   sectionId: string;
 }
@@ -120,8 +121,7 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
       try {
         const pickerResult = await ImagePicker.launchCameraAsync({
           allowsEditing: false,
-          quality: 0.5, // Consider if higher quality is needed for PDF, but 0.5 is good for performance
-          // You might want to explicitly set aspect if needed, but default should be fine
+          quality: 0.5,
         });
         if (
           !pickerResult.canceled &&
@@ -129,8 +129,18 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
           pickerResult.assets.length > 0
         ) {
           const asset = pickerResult.assets[0];
-          // MODIFIED: Pass width and height to onPhotoTake
-          onPhotoTake(item.id, sectionId, asset.uri, asset.width, asset.height);
+          // Capture timestamp when photo is taken
+          const timestamp = new Date().toLocaleString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+          });
+          // Pass timestamp to onPhotoTake
+          onPhotoTake(item.id, sectionId, asset.uri, asset.width, asset.height, timestamp);
         }
       } catch (error) {
         console.error("Error launching camera: ", error);
@@ -141,8 +151,8 @@ const AuditListItem: React.FC<AuditListItemProps> = React.memo(
     // --- Logic for removing a photo ---
     const triggerRemovePhoto = () => {
       if (item.type === "header") return;
-      // MODIFIED: When removing, pass null for URI and undefined for dimensions
-      onPhotoTake(item.id, sectionId, null, undefined, undefined);
+      // When removing, pass null for URI, undefined for dimensions, and undefined for timestamp
+      onPhotoTake(item.id, sectionId, null, undefined, undefined, undefined);
     };
 
     const isPhotoTakingDisabled =
@@ -291,6 +301,7 @@ const AuditChecklistMainScreen = () => {
           riskLevel: item.riskLevel || null,
           auditorRemarks: item.auditorRemarks || "",
           photoUri: item.photoUri || null,
+          photoTimestamp: item.photoTimestamp || undefined, // Add this line
           subItems: item.subItems
             ? item.subItems.map((subItem: any) => ({
                 ...subItem,
@@ -298,6 +309,7 @@ const AuditChecklistMainScreen = () => {
                 riskLevel: subItem.riskLevel || null,
                 auditorRemarks: subItem.auditorRemarks || "",
                 photoUri: subItem.photoUri || null,
+                photoTimestamp: subItem.photoTimestamp || undefined, // Add this line
               }))
             : [],
         })),
@@ -466,12 +478,12 @@ const AuditChecklistMainScreen = () => {
 
   const handleItemPhotoTake = useCallback(
     (
-      // MODIFIED: Add width and height parameters
       itemId: string,
       sectionId: string,
       photoUri: string | null,
       originalWidth?: number,
-      originalHeight?: number
+      originalHeight?: number,
+      timestamp?: string // Add this parameter
     ) => {
       setAuditSections((prevSections) => {
         const section = prevSections.find((s) => s.id === sectionId);
@@ -493,8 +505,9 @@ const AuditChecklistMainScreen = () => {
           if (
             currentItem &&
             ((currentItem.photoUri || null) !== (photoUri || null) ||
-              currentItem.originalImageWidth !== originalWidth || // Check dimensions change
-              currentItem.originalImageHeight !== originalHeight)
+              currentItem.originalImageWidth !== originalWidth ||
+              currentItem.originalImageHeight !== originalHeight ||
+              currentItem.photoTimestamp !== timestamp) // Add this line
           ) {
             itemChanged = true;
           }
@@ -510,9 +523,9 @@ const AuditChecklistMainScreen = () => {
           (item) => ({
             ...item,
             photoUri: photoUri,
-            // MODIFIED: Update originalImageWidth and originalImageHeight
             originalImageWidth: photoUri ? originalWidth : undefined,
             originalImageHeight: photoUri ? originalHeight : undefined,
+            photoTimestamp: photoUri ? timestamp : undefined, // Add this line
           })
         );
       });
