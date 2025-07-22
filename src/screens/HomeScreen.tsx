@@ -1,9 +1,17 @@
 // filepath: /Users/davidonquit/Library/Mobile Documents/com~apple~CloudDocs/Year2025/developingforAppStore/internalaudit/src/screens/HomeScreen.tsx
-import React from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, StatusBar, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { AppStackParamList } from '../navigation/AppNavigator';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  SafeAreaView,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { AppStackParamList } from "../navigation/AppNavigator";
 
 // Define a more specific type for items in APP_LIST_DATA
 interface AppListItem {
@@ -16,14 +24,17 @@ interface AppListItem {
 }
 
 const APP_LIST_DATA: AppListItem[] = [
-  { id: "1", title: "Audit with Property Checklist", screenName: "AuditCategories" },
-  // Assuming these other screens are defined in your AppStackParamList and don't require params from HomeScreen
-  // { id: "2", title: "Building Inspections - Daily", screenName: "BuildingInspectionsDaily" as any }, // Cast to any if not in AppStackParamList yet
-  // { id: "3", title: "Building Inspections - Weekly", screenName: "BuildingInspectionsWeekly" as any },// Cast to any if not in AppStackParamList yet
-  // { id: "4", title: "Building Inspections - Monthly", screenName: "BuildingInspectionsMonthly" as any },// Cast to any if not in AppStackParamList yet
-  { id: "5", title: "Health & Safety – Daily TBM", screenName: "HealthSafetyDailyTBM" as any },// Cast to any if not in AppStackParamList yet
-  // { id: "6", title: "Safety Site Inspection – FSM+Safety", screenName: "SafetySiteInspection" as any },// Cast to any if not in AppStackParamList yet
-  // { id: "7", title: "FSM Periodic Inspection", screenName: "FSMPeriodicInspection" as any },// Cast to any if not in AppStackParamList yet
+  {
+    id: "1",
+    title: "Audit with Property Checklist",
+    screenName: "AuditCategories",
+  },
+
+  {
+    id: "5",
+    title: "Health & Safety – Daily TBM",
+    screenName: "HealthSafetyDailyTBM" as any,
+  }, // Cast to any if not in AppStackParamList yet
 ];
 
 interface ItemProps {
@@ -58,7 +69,7 @@ export default function HomeScreen() {
       <FlatList
         data={APP_LIST_DATA}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
       />
     </SafeAreaView>
   );
@@ -68,21 +79,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: '#f4f4f4',
+    backgroundColor: "#f4f4f4",
   },
   header: {
     fontSize: 22,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginVertical: 18,
   },
   item: {
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
     borderRadius: 5,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
