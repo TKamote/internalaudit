@@ -1,19 +1,23 @@
 // filepath: /Users/davidonquit/Library/Mobile Documents/com~apple~CloudDocs/Year2025/developingforAppStore/internalaudit/src/navigation/AppNavigator.tsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "../config/firebaseConfig";
+import { View, Text, ActivityIndicator } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+
 import HomeScreen from "../screens/HomeScreen";
+import LoginScreen from "../screens/LoginScreen";
 import AuditCategoriesScreen from "../features/auditPropertyChecklist/screens/AuditCategoriesScreen";
 import AuditChecklistMainScreen from "../features/auditPropertyChecklist/screens/AuditChecklistMainScreen";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { View, Text, TouchableOpacity } from "react-native";
 import DailyTBMScreen from "../features/tbm/screens/DailyTBMScreen";
 import PropertyInspectionScreen from "../features/propertyInspection/screens/PropertyInspectionScreen";
 import FSMPeriodicInspectionScreen from "../features/fsminspection/FSMPeriodicInspectionScreen";
-
 import MonthlyFEInspectionScreen from "../features/fsminspection/Monthly_FE_Inspection";
 
 // Define a type for our App Stack parameters
 export type AppStackParamList = {
+  Login: undefined;
   AppHome: undefined;
   AuditCategories: undefined;
   AuditChecklistMain: { categoryId: string; categoryName: string };
@@ -24,6 +28,7 @@ export type AppStackParamList = {
   HealthSafetyDailyTBM: undefined;
   SafetySiteInspection: undefined;
   FSMPeriodicInspection: undefined;
+  BuildingInspectionsWeekly: undefined; // Added missing type definition
 };
 
 const AppStack = createNativeStackNavigator<AppStackParamList>();
@@ -39,82 +44,120 @@ const PlaceholderScreen = (
 );
 
 const AppNavigator = () => {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+      setLoading(false);
+    });
+    return unsubscribe;
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  }
+
   return (
-    <AppStack.Navigator>
-      <AppStack.Screen
-        name="AppHome"
-        component={HomeScreen}
-        options={({ navigation }) => ({
-          title: "", // Keep title empty or remove if headerTitle is used
-          headerLeft: () => null, // Remove the left icon or set to null if you want default back arrow behavior on other screens to be consistent
-          headerTitleAlign: "center", // Ensure title alignment is center
-          headerTitle: () => (
-            // <<< USE headerTitle TO CENTER THE ICON
-            <Ionicons
-              name="home-outline"
-              size={28}
-              color="#020202"
-              // No specific style needed here unless you want to adjust its position within the title container
-            />
-          ),
-        })}
-      />
-      <AppStack.Screen
-        name="AuditCategories"
-        component={AuditCategoriesScreen}
-        options={{
-          title: "",
-          headerRight: () => (
-            <Ionicons
-              name="list-outline"
-              size={28}
-              color="#020202"
-              style={{ marginRight: 15 }}
-            />
-          ),
-          headerBackTitle: "",
-        }}
-      />
-      <AppStack.Screen
-        name="AuditChecklistMain"
-        component={AuditChecklistMainScreen}
-        options={({ route }) => ({
-          title: route.params?.categoryName || "Checklist",
-          headerBackTitle: "",
-        })}
-      />
-      {/* Placeholder screens for the other items from APP_LIST_DATA */}
-      <AppStack.Screen
-        name="BuildingInspectionsDaily"
-        component={PropertyInspectionScreen}
-        options={{ title: "Property Inspection" }}
-      />
-      <AppStack.Screen
-        name="BuildingInspectionsWeekly"
-        component={PlaceholderScreen}
-        options={{ title: "Building Inspections Weekly" }}
-      />
-      <AppStack.Screen
-        name="BuildingInspectionsMonthly"
-        component={MonthlyFEInspectionScreen}
-        options={{ title: "Monthly Fire Extinguisher Inspection" }}
-      />
-      <AppStack.Screen
-        name="HealthSafetyDailyTBM"
-        component={DailyTBMScreen}
-        options={{ title: "Health & Safety TBM" }}
-      />
-      <AppStack.Screen
-        name="SafetySiteInspection"
-        component={PlaceholderScreen}
-        options={{ title: "Safety Site Inspection" }}
-      />
-      {/* MODIFIED: Point to the new screen */}
-      <AppStack.Screen
-        name="FSMPeriodicInspection"
-        component={FSMPeriodicInspectionScreen}
-        options={{ title: "FSM Periodic Inspection" }}
-      />
+    <AppStack.Navigator initialRouteName={user ? "AppHome" : "Login"}>
+      {!user ? (
+        <AppStack.Screen 
+          name="Login" 
+          component={LoginScreen} 
+          options={{ headerShown: false }}
+        />
+      ) : (
+        <>
+          <AppStack.Screen
+            name="AppHome"
+            component={HomeScreen}
+            options={({ navigation }) => ({
+              title: "", // Keep title empty or remove if headerTitle is used
+              headerLeft: () => null, // Remove the left icon or set to null if you want default back arrow behavior on other screens to be consistent
+              headerTitleAlign: "center", // Ensure title alignment is center
+              headerTitle: () => (
+                // <<< USE headerTitle TO CENTER THE ICON
+                <Ionicons
+                  name="home-outline"
+                  size={28}
+                  color="#020202"
+                  // No specific style needed here unless you want to adjust its position within the title container
+                />
+              ),
+              headerRight: () => (
+                <Ionicons 
+                  name="log-out-outline" 
+                  size={24} 
+                  color="red" 
+                  style={{ marginRight: 15 }}
+                  onPress={() => auth.signOut()}
+                />
+              )
+            })}
+          />
+          <AppStack.Screen
+            name="AuditCategories"
+            component={AuditCategoriesScreen}
+            options={{
+              title: "",
+              headerRight: () => (
+                <Ionicons
+                  name="list-outline"
+                  size={28}
+                  color="#020202"
+                  style={{ marginRight: 15 }}
+                />
+              ),
+              headerBackTitle: "",
+            }}
+          />
+          <AppStack.Screen
+            name="AuditChecklistMain"
+            component={AuditChecklistMainScreen}
+            options={({ route }) => ({
+              title: route.params?.categoryName || "Checklist",
+              headerBackTitle: "",
+            })}
+          />
+          {/* Placeholder screens for the other items from APP_LIST_DATA */}
+          <AppStack.Screen
+            name="BuildingInspectionsDaily"
+            component={PropertyInspectionScreen}
+            options={{ title: "Property Inspection" }}
+          />
+          <AppStack.Screen
+            name="BuildingInspectionsWeekly"
+            component={PlaceholderScreen}
+            options={{ title: "Building Inspections Weekly" }}
+          />
+          <AppStack.Screen
+            name="BuildingInspectionsMonthly"
+            component={MonthlyFEInspectionScreen}
+            options={{ title: "Monthly Fire Extinguisher Inspection" }}
+          />
+          <AppStack.Screen
+            name="HealthSafetyDailyTBM"
+            component={DailyTBMScreen}
+            options={{ title: "Health & Safety TBM" }}
+          />
+          <AppStack.Screen
+            name="SafetySiteInspection"
+            component={PlaceholderScreen}
+            options={{ title: "Safety Site Inspection" }}
+          />
+          {/* MODIFIED: Point to the new screen */}
+          <AppStack.Screen
+            name="FSMPeriodicInspection"
+            component={FSMPeriodicInspectionScreen}
+            options={{ title: "FSM Periodic Inspection" }}
+          />
+        </>
+      )}
     </AppStack.Navigator>
   );
 };
