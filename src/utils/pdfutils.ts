@@ -1,4 +1,5 @@
-import * as FileSystem from "expo-file-system";
+import "./polyfills"; // Import polyfills first
+import * as FileSystem from "expo-file-system/legacy";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable"; // Correct import for jspdf-autotable
 import {
@@ -14,7 +15,7 @@ export const convertImageToBase64 = async (
 ): Promise<string | null> => {
   try {
     const base64 = await FileSystem.readAsStringAsync(uri, {
-      encoding: FileSystem.EncodingType.Base64,
+      encoding: "base64",
     });
     let imageType = "jpeg"; // Default
     if (uri.endsWith(".png")) {

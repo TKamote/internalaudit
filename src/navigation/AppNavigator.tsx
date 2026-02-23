@@ -6,7 +6,11 @@ import AuditCategoriesScreen from "../features/auditPropertyChecklist/screens/Au
 import AuditChecklistMainScreen from "../features/auditPropertyChecklist/screens/AuditChecklistMainScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { View, Text, TouchableOpacity } from "react-native";
-import FSMPeriodicInspectionScreen from "../features/fsminspection/FSMPeriodicInspectionScreen"; // <<< ADD THIS IMPORT
+import DailyTBMScreen from "../features/tbm/screens/DailyTBMScreen";
+import PropertyInspectionScreen from "../features/propertyInspection/screens/PropertyInspectionScreen";
+import FSMPeriodicInspectionScreen from "../features/fsminspection/FSMPeriodicInspectionScreen";
+
+import MonthlyFEInspectionScreen from "../features/fsminspection/Monthly_FE_Inspection";
 
 // Define a type for our App Stack parameters
 export type AppStackParamList = {
@@ -15,8 +19,8 @@ export type AppStackParamList = {
   AuditChecklistMain: { categoryId: string; categoryName: string };
   // Definitions for placeholder screens
   BuildingInspectionsDaily: undefined;
-  BuildingInspectionsWeekly: undefined;
-  BuildingInspectionsMonthly: undefined;
+  MonthlyFEInspection: undefined;
+  BuildingInspectionsMonthly: undefined; // Keeping for compatibility if needed, but route will point to new screen
   HealthSafetyDailyTBM: undefined;
   SafetySiteInspection: undefined;
   FSMPeriodicInspection: undefined;
@@ -82,8 +86,8 @@ const AppNavigator = () => {
       {/* Placeholder screens for the other items from APP_LIST_DATA */}
       <AppStack.Screen
         name="BuildingInspectionsDaily"
-        component={PlaceholderScreen}
-        options={{ title: "Building Inspections Daily" }}
+        component={PropertyInspectionScreen}
+        options={{ title: "Property Inspection" }}
       />
       <AppStack.Screen
         name="BuildingInspectionsWeekly"
@@ -92,12 +96,12 @@ const AppNavigator = () => {
       />
       <AppStack.Screen
         name="BuildingInspectionsMonthly"
-        component={PlaceholderScreen}
-        options={{ title: "Building Inspections Monthly" }}
+        component={MonthlyFEInspectionScreen}
+        options={{ title: "Monthly Fire Extinguisher Inspection" }}
       />
       <AppStack.Screen
         name="HealthSafetyDailyTBM"
-        component={PlaceholderScreen}
+        component={DailyTBMScreen}
         options={{ title: "Health & Safety TBM" }}
       />
       <AppStack.Screen

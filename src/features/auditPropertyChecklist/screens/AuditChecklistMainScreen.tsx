@@ -22,7 +22,7 @@ import initialAuditDataImport from "../../../assets/data.json";
 import { AppStackParamList } from "../../../navigation/AppNavigator";
 import * as Print from "expo-print"; // Keep for potential actual printing later
 import * as Sharing from "expo-sharing";
-import * as FileSystem from "expo-file-system"; // Import FileSystem
+import * as FileSystem from "expo-file-system/legacy"; // Import FileSystem
 import { generatePdfWithJsPDF } from "../../../utils/pdfutils";
 
 // --- Types ---
@@ -552,7 +552,7 @@ const AuditChecklistMainScreen = () => {
       const fileUri = FileSystem.cacheDirectory + pdfFileName;
 
       await FileSystem.writeAsStringAsync(fileUri, base64Pdf, {
-        encoding: FileSystem.EncodingType.Base64,
+        encoding: "base64",
       });
       console.log("PDF (from jsPDF) saved to file at:", fileUri);
 

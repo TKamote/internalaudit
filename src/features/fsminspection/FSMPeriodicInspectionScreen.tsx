@@ -1,3 +1,4 @@
+import "../../utils/polyfills"; // Import polyfills first
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -17,7 +18,7 @@ import { AppStackParamList } from "../../navigation/AppNavigator"; // Ensure thi
 import jsPDF from "jspdf";
 import autoTable from 'jspdf-autotable'; // Import it this way
 
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 import * as Sharing from "expo-sharing";
 
 // Import the JSON data
@@ -314,7 +315,7 @@ export default function FSMPeriodicInspectionScreen() {
 
         console.log("Attempting to write file");
         await FileSystem.writeAsStringAsync(filename, base64Code, {
-          encoding: FileSystem.EncodingType.Base64,
+          encoding: "base64",
         });
         console.log("File written successfully");
 
